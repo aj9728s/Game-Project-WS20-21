@@ -102,6 +102,7 @@ public class J_PlayerManagement : MonoBehaviour
         // Player Ligthning
         // ----------------------------------------------------------------------------------------------------------------------------------
 
+        /*
         if (Input.GetKeyDown(KeyCode.Q) && Time.time >= timestamp)
         {
             if(actualLightRange == lightRangeNumber -1)
@@ -112,6 +113,7 @@ public class J_PlayerManagement : MonoBehaviour
             playerLight.range = lightRange[actualLightRange];
             timestamp = Time.time + 0.5f;
         }
+        */
 
         // ----------------------------------------------------------------------------------------------------------------------------------
         // Player FallDmg

@@ -8,15 +8,23 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
+
     [SerializeField]
-    private bool shootPerm = false;
+    private int weaponNR = 0;
+
+    [SerializeField]
+    private SOAmmoManager weaponManager;
 
     // Update is called once per frame
     void Update()
     {
-        if (shootPerm && Input.GetButtonDown("Fire1"))
+        int sWeapon = weaponManager.selectedWeapon;
+        int aWeapon = weaponManager.ammoAmount;
+
+        if (sWeapon == weaponNR && Input.GetButtonDown("Fire1") && aWeapon != 0)
         {
             Shootf();
+            weaponManager.ammoAmount -= 1;
         }
     }
 
@@ -25,10 +33,5 @@ public class Shoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position,firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.forward * bulletForce, ForceMode.VelocityChange);
-    }
-
-    public void EnableShoot()
-    {
-        shootPerm = true;
     }
 }

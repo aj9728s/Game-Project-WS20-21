@@ -6,24 +6,28 @@ using UnityEngine;
 public class PickupGun : MonoBehaviour
 {
     [SerializeField]
-    private UnityEvent enableShooting;
-
-    [SerializeField]
     private UnityEvent enableAlarm;
 
     [SerializeField]
     private GameObject triggerEnemies;
 
+    [SerializeField]
+    private SOAmmoManager weaponManager;
 
+    [SerializeField]
+    private int weaponNR;
 
     //[SerializeField]
     //private GameObject GunLayout;
 
     void OnTriggerEnter(Collider other)
     {
+    
         if (other.CompareTag("Player"))
         {
-            enableShooting.Invoke();
+            weaponManager.weapons.Add(weaponNR);
+            weaponManager.selectedWeapon = weaponNR;
+
             //GunLayout.SetActive(true);
             enableAlarm.Invoke();
 
