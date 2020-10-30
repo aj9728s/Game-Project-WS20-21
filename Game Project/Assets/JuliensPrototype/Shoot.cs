@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     public GameObject bulletPrefab;
     public float bulletForce = 20f;
+    [SerializeField]
     private bool shootPerm = false;
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class Shoot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position,firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * bulletForce, ForceMode.Impulse);
+        rb.AddForce(firePoint.forward * bulletForce, ForceMode.VelocityChange);
     }
 
     public void EnableShoot()

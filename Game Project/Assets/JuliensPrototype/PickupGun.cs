@@ -9,7 +9,12 @@ public class PickupGun : MonoBehaviour
     private UnityEvent enableShooting;
 
     [SerializeField]
+    private UnityEvent enableAlarm;
+
+    [SerializeField]
     private GameObject triggerEnemies;
+
+
 
     //[SerializeField]
     //private GameObject GunLayout;
@@ -20,6 +25,7 @@ public class PickupGun : MonoBehaviour
         {
             enableShooting.Invoke();
             //GunLayout.SetActive(true);
+            enableAlarm.Invoke();
 
             for (int i = 0; i < triggerEnemies.transform.childCount - 1; i++)
             {
