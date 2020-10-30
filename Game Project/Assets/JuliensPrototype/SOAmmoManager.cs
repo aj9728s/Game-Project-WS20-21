@@ -6,6 +6,7 @@ using UnityEngine;
 public class SOAmmoManager : ScriptableObject
 {
     public int ammoAmount;
+    public int batteryLevel;
     public List<int> weapons;
     public int selectedWeapon;
 

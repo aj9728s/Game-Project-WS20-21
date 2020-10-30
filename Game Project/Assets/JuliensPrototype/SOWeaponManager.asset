@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
   ammoAmount: 0
-  weapons: 
-  selectedWeapon: 0
+  batteryLevel: 4
+  weapons: 02000000
+  selectedWeapon: 2
