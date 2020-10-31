@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
+using TMPro;
 using UnityEngine;
 
 public class PickupGun : MonoBehaviour
@@ -17,12 +18,21 @@ public class PickupGun : MonoBehaviour
     [SerializeField]
     private int weaponNR;
 
+    [SerializeField]
+    private GameObject textHintLayout;
+
+    [SerializeField]
+    private string weaponHint;
+
+    private float timeRemaining = 200f;
+
+
     //[SerializeField]
     //private GameObject GunLayout;
 
     void OnTriggerEnter(Collider other)
     {
-    
+
         if (other.CompareTag("Player"))
         {
             weaponManager.weapons.Add(weaponNR);
@@ -39,5 +49,20 @@ public class PickupGun : MonoBehaviour
 
             Destroy(gameObject, 2);
         }
+
     }
+            /*
+            textHintLayout.GetComponent<TextMeshProUGUI>().text = weaponHint;
+
+            while (timeRemaining > 0)
+            {
+                Debug.Log(timeRemaining);
+                textHintLayout.GetComponent<TextHintLayout>().manuelHint = false;
+                timeRemaining -= Time.deltaTime;
+            }
+
+            textHintLayout.GetComponent<TextHintLayout>().manuelHint = true;
+
+            */
+         
 }

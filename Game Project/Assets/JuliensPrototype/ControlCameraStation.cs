@@ -30,12 +30,13 @@ public class ControlCameraStation : MonoBehaviour
         {
 
             command.command = "F";
+            command.textHint = "Dies ist eine Hacking Station mit welcher sich in Zukunf beliebige Dinge manipulieren lassen." +
+                               "Du wirst diese immer mit der angebenen Taste bedienen können ";
 
             if (Input.GetKey(KeyCode.F))
             {
-                command.command = "";
-
-                for (int i = 0; i < triggerEnemies.transform.childCount - 1; i++)
+               
+                for (int i = 0; i < triggerEnemies.transform.childCount; i++)
                 {
                     triggerEnemies.transform.GetChild(i).transform.GetComponent<Light>().enabled = true;
                     triggerEnemies.transform.GetChild(i).transform.GetComponent<MeshRenderer>().enabled = true;
@@ -56,7 +57,9 @@ public class ControlCameraStation : MonoBehaviour
         else
         {
             command.command = "";
+            command.textHint = "";
         }
 
     }
+
 }

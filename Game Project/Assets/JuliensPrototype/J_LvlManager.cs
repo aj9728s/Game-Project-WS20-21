@@ -8,6 +8,9 @@ public class J_LvlManager : MonoBehaviour
 {
     [SerializeField]
     private SOAmmoManager weaponManager;
+    [SerializeField]
+    private GameObject SecurityCamReset;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +20,17 @@ public class J_LvlManager : MonoBehaviour
 
     public void PlayerDied()
     {
+        ResetSecurityCam();
+        ResetWeaponManager();
         Scene actualScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(actualScene.buildIndex);
-        ResetWeaponManager();
+        
+    }
+
+    public void ResetSecurityCam()
+    {
+        SecurityCamReset.GetComponent<SecurityCamera>().enabled = false;
+        SecurityCamReset.GetComponentInChildren<Camera>().enabled = false;
     }
 
     public void ResetWeaponManager()
@@ -29,6 +40,9 @@ public class J_LvlManager : MonoBehaviour
         weaponManager.weapons.Clear();
         weaponManager.weapons.Add(2);
         weaponManager.selectedWeapon = 2;
+        weaponManager.command = "";
+        weaponManager.commandPrior = "";
+        weaponManager.textHintPrio = "";
     }
 
 

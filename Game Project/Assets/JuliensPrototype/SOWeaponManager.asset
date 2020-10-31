@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
   ammoAmount: 0
-  batteryLevel: 2
+  batteryLevel: 4
   weapons: 02000000
   selectedWeapon: 2
   command: 
+  commandPrior: 
+  textHint: 
+  textHintPrio: 

@@ -11,6 +11,8 @@ public class SOAmmoManager : ScriptableObject
     public int selectedWeapon;
     public string command;
     public string commandPrior;
+    public string textHint;
+    public string textHintPrio;
 
     void Awake()
     {

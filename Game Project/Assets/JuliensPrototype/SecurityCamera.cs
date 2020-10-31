@@ -21,6 +21,9 @@ public class SecurityCamera : MonoBehaviour
     void Update()
     {
         command.commandPrior = "E";
+        command.textHintPrio = "Du kannst Kameras mit den Tasten A und S bewegen um dir" +
+                               " einen Vorteil zu erschaffen. " +
+                               " Übrigens... Pass immer auf deinen Rücken auf ";
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -34,6 +37,7 @@ public class SecurityCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             command.commandPrior= "";
+            command.textHintPrio = "";
             mainCamera.GetComponent<Camera>().enabled = true;
             startPlayerMov.Invoke();
             GetComponentInChildren<Camera>().enabled = false;

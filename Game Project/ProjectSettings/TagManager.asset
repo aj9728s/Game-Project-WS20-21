@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemie
   - Mirror
+  - DestroyableWall
   layers:
   - Default
   - TransparentFX
