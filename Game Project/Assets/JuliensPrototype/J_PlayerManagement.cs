@@ -22,6 +22,8 @@ public class J_PlayerManagement : MonoBehaviour
     private int actualLightRange;
     private float timestamp = 0f;
 
+    private bool canMove = true;
+
     [SerializeField]
     public Camera cam;
     
@@ -36,6 +38,11 @@ public class J_PlayerManagement : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         // ---------------------------------------------------------------------------------
         // Rotation of player with mouse
         // ---------------------------------------------------------------------------------
@@ -53,6 +60,11 @@ public class J_PlayerManagement : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        if (!canMove)
+        {
+            return;
+        }
 
         // ----------------------------------------------------------------------------------------------------------------------------------
         // Player Movement 
@@ -123,5 +135,15 @@ public class J_PlayerManagement : MonoBehaviour
         {
             lvlManagerPlayerDied.Invoke();
         }
+    }
+
+    public void setCanMoveTrue()
+    {
+        canMove = true;
+    }
+
+    public void setCanMoveFalse()
+    {
+        canMove = false;
     }
 }

@@ -49,8 +49,6 @@ public class Flashlight : MonoBehaviour
 
         }
 
-        Debug.Log(tickTimer);
-
         if (batteryLvl != 0 && Input.GetButtonDown("Fire1") && sWeapon == weaponNR)
         {
             ChangeState();

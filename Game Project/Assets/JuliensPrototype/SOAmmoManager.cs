@@ -9,6 +9,8 @@ public class SOAmmoManager : ScriptableObject
     public int batteryLevel;
     public List<int> weapons;
     public int selectedWeapon;
+    public string command;
+    public string commandPrior;
 
     void Awake()
     {
