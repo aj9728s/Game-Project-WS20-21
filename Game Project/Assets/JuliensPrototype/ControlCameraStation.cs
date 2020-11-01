@@ -42,7 +42,9 @@ public class ControlCameraStation : MonoBehaviour
                 {
                     triggerEnemies.transform.GetChild(i).transform.GetComponent<Light>().enabled = true;
                     triggerEnemies.transform.GetChild(i).transform.GetComponent<MeshRenderer>().enabled = true;
-                    triggerEnemies.transform.GetChild(i).transform.GetComponent<BoxCollider>().enabled = true;
+                    triggerEnemies.transform.GetChild(i).transform.GetComponents<BoxCollider>()[0].enabled = true;
+                    triggerEnemies.transform.GetChild(i).transform.GetComponents<BoxCollider>()[1].enabled = true;
+                    triggerEnemies.transform.GetChild(i).transform.GetComponent<Rigidbody>().isKinematic = true;
 
                     triggerEnemies.transform.GetChild(i).transform.GetComponent<EnemyCube>().enableAttack();
 
