@@ -33,7 +33,7 @@ public class ControlBombStation : MonoBehaviour
         if (Vector3.Distance(this.transform.position, player.transform.position) <= 2)
         {
             command.command = "F";
-            command.timer2 = 0.1f;
+            command.timerCommand = 0.1f;
 
             if (Input.GetKey(KeyCode.F))
             {

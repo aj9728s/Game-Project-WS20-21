@@ -22,7 +22,7 @@ public class SecurityCamera : MonoBehaviour
     {
         command.commandPrior = "E";
         command.timerText = 0.1f;
-        command.timer2 = 0.1f;
+        command.timerCommand = 0.1f;
         command.textHintPrio = "Du kannst Kameras mit den Tasten A und S bewegen um dir" +
                                " einen Vorteil zu erschaffen. " +
                                " Übrigens... Pass immer auf deinen Rücken auf ";

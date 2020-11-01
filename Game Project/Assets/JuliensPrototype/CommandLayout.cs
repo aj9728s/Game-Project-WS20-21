@@ -28,9 +28,9 @@ public class CommandLayout : MonoBehaviour
                 border[i].enabled = true;
             }
 
-            if (commandSO.timer2 > 0)
+            if (commandSO.timerCommand > 0)
             {
-                commandSO.timer2 -= Time.deltaTime;
+                commandSO.timerCommand -= Time.deltaTime;
             }
 
             else
@@ -56,9 +56,9 @@ public class CommandLayout : MonoBehaviour
                 border[i].enabled = true;
             }
 
-            if (commandSO.timer2 > 0)
+            if (commandSO.timerCommand > 0)
             {
-                commandSO.timer2 -= Time.deltaTime;
+                commandSO.timerCommand -= Time.deltaTime;
             }
 
             else

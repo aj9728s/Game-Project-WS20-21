@@ -46,5 +46,10 @@ public class ImgWeapon : MonoBehaviour
             GetComponent<Image>().sprite = images[3];
         } // poison
 
+        else if (ammoManager.selectedWeapon == 5)
+        {
+            GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<Image>().sprite = images[4];
+        } // knife
     }
 }

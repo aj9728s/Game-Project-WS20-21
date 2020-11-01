@@ -26,7 +26,10 @@ public class J_PlayerManagement : MonoBehaviour
 
     [SerializeField]
     public Camera cam;
-    
+
+    [SerializeField]
+    private SOAmmoManager weaponManager;
+
     void Start()
     {
         playerRig = GetComponent<Rigidbody>();
@@ -94,7 +97,7 @@ public class J_PlayerManagement : MonoBehaviour
 
         impulse.Normalize();
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (weaponManager.sneaking)
         {
             impulse *= sneakSpeed;
         }

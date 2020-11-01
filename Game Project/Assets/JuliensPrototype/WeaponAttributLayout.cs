@@ -63,5 +63,13 @@ public class WeaponAttributLayout : MonoBehaviour
 
         }
 
+        else if (weaponManager.selectedWeapon == 5)
+        {
+            GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
+            GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+            GetComponentInChildren<TextMeshProUGUI>().text = "inf";
+
+
+        }
     }
 }

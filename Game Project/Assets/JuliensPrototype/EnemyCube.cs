@@ -16,6 +16,21 @@ public class EnemyCube : MonoBehaviour
     [SerializeField]
     private bool AttackEnabled;
 
+    [SerializeField]
+    private bool WaitingEnabled = false;
+
+    [SerializeField]
+    private SOAmmoManager weaponManager;
+
+    [SerializeField]
+    private int KnifeNr;
+
+    [SerializeField]
+    private float detectionRange = 3;
+    
+    private float dist;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +54,25 @@ public class EnemyCube : MonoBehaviour
         {
             moveCharacter(movement);
         }
+
+        if (WaitingEnabled)
+        {
+            dist = Vector3.Distance(this.GetComponentInParent<Transform>().position, player.position);
+            AttackOnRange();
+        }
     }
 
     void moveCharacter(Vector3 direction)
     {
         EnemyRb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
+    }
+
+    void AttackOnRange()
+    {
+        if (!weaponManager.sneaking && dist <= detectionRange)
+        {
+            AttackEnabled = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)

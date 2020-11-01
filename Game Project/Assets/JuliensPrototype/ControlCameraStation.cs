@@ -31,7 +31,7 @@ public class ControlCameraStation : MonoBehaviour
 
             command.command = "F";
             command.timerText = 0.1f;
-            command.timer2 = 0.1f;
+            command.timerCommand = 0.1f;
             command.textHint = "Dies ist eine Hacking Station mit welcher sich in Zukunf beliebige Dinge manipulieren lassen." +
                                "Du wirst diese immer mit der angebenen Taste bedienen können ";
 

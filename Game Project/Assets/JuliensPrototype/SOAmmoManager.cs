@@ -14,7 +14,8 @@ public class SOAmmoManager : ScriptableObject
     public string textHint;
     public string textHintPrio;
     public float timerText = 0;
-    public float timer2 = 0;
+    public float timerCommand = 0;
+    public bool sneaking = false;
 
     void Awake()
     {

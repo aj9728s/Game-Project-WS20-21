@@ -19,7 +19,7 @@ public class PickupGun : MonoBehaviour
     private SOAmmoManager weaponManager;
 
     [SerializeField]
-    private int weaponNR;
+    public int weaponNR;
 
     [SerializeField]
     private GameObject textHintLayout;

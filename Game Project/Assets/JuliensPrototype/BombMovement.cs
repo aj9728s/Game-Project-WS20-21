@@ -37,7 +37,7 @@ public class BombMovement : MonoBehaviour
     {
   
         command.commandPrior = "E";
-        command.timer2 = 0.1f;
+        command.timerCommand = 0.1f;
 
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPos = bombCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position);
