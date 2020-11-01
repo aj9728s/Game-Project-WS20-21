@@ -9,35 +9,47 @@ public class TextHintLayout : MonoBehaviour
     [SerializeField]
     private SOAmmoManager TextHint;
 
-    private float timeRemaining = 200f ;
+    public float timeRemaining;
 
-    public bool manuelHint = true;
     // Update is called once per frame
     void Update()
     {
-        if (manuelHint && TextHint.textHintPrio == "")
-            this.GetComponent<TextMeshProUGUI>().text = TextHint.textHint;
-        if (manuelHint && TextHint.textHintPrio != "")
-            this.GetComponent<TextMeshProUGUI>().text = TextHint.textHintPrio;
-
-    }
-
-    public void ShowHint()
-    {
-        while (timeRemaining > 0)
+        
+        if (TextHint.textHintPrio == "")
         {
-            Debug.Log(timeRemaining);
-            manuelHint = false;
-            timeRemaining -= Time.deltaTime;
+            this.GetComponent<TextMeshProUGUI>().text = TextHint.textHint;
+
+            if (TextHint.timerText > 0)
+            {
+                TextHint.timerText -= Time.deltaTime;
+            }
+
+            else
+            {
+                TextHint.textHint = "";
+            
+            }
+
+
+
         }
 
-        manuelHint = true;
-    }
+        else
+        {
+            this.GetComponent<TextMeshProUGUI>().text = TextHint.textHintPrio;
 
-    IEnumerator timer()
-    {
-        yield return new WaitForSeconds(3f);
-    }
+            if (TextHint.timerText > 0)
+            {
+                TextHint.timerText -= Time.deltaTime;
+            }
 
-   
+            else
+            {
+                TextHint.textHintPrio = "";
+
+            }
+        }
+
+    }
+  
 }

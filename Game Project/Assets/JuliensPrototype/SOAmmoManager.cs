@@ -13,6 +13,8 @@ public class SOAmmoManager : ScriptableObject
     public string commandPrior;
     public string textHint;
     public string textHintPrio;
+    public float timerText = 0;
+    public float timer2 = 0;
 
     void Awake()
     {

@@ -104,7 +104,7 @@ public class J_PlayerManagement : MonoBehaviour
             impulse *= walkSpeed;
         }
 
-        playerRig.velocity = impulse;
+        playerRig.velocity = impulse + new Vector3(0.0f, -1f, 0.0f); ;
 
        
 

@@ -33,6 +33,18 @@ public class ImgWeapon : MonoBehaviour
             GetComponent<Image>().color = new Color(255, 255, 255, 255);
             GetComponent<Image>().sprite = images[1];
         } // flashlight
-         
+
+        else if (ammoManager.selectedWeapon == 3)
+        {
+            GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<Image>().sprite = images[2];
+        } // key
+
+        else if (ammoManager.selectedWeapon == 4)
+        {
+            GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            GetComponent<Image>().sprite = images[3];
+        } // poison
+
     }
 }

@@ -18,18 +18,26 @@ public class BombMovement : MonoBehaviour
     [SerializeField]
     private GameObject mainCamera;
 
+    [SerializeField]
+    private GameObject door;
+
     private bool canMove = true;
 
+    private Vector3 positionBomb;
 
     [SerializeField]
     private GameObject bombCamera;
 
+    void Start()
+    {
+        positionBomb = this.transform.position;
+    }
+
     void FixedUpdate()
     {
-        if (!canMove)
-        {
-            return;
-        }
+  
+        command.commandPrior = "E";
+        command.timer2 = 0.1f;
 
         Vector3 mousePos = Input.mousePosition;
         Vector3 playerPos = bombCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position);
@@ -72,10 +80,11 @@ public class BombMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
         {
+            command.commandPrior = "";
             mainCamera.GetComponent<Camera>().enabled = true;
             startPlayerMov.Invoke();
             bombCamera.GetComponent<Camera>().enabled = false;
-            canMove = false;
+            GetComponent<BombMovement>().enabled = false;
         }
 
         this.GetComponent<Rigidbody>().velocity = impulse;
@@ -86,11 +95,9 @@ public class BombMovement : MonoBehaviour
         if (other.CompareTag("DestroyableWall"))
         {
             Destroy(other.gameObject);
-            transform.GetChild(0).GetComponent<Light>().enabled = false;
-            GetComponent<Light>().enabled = false;
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            this.gameObject.GetComponent<BoxCollider>().enabled = false;
-            
+            door.SetActive(false);
+            transform.position = positionBomb;
+
 
         }
 

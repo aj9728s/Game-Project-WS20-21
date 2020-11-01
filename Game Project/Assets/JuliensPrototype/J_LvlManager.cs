@@ -40,7 +40,6 @@ public class J_LvlManager : MonoBehaviour
         weaponManager.weapons.Clear();
         weaponManager.weapons.Add(2);
         weaponManager.selectedWeapon = 2;
-        weaponManager.command = "";
         weaponManager.commandPrior = "";
         weaponManager.textHintPrio = "";
     }

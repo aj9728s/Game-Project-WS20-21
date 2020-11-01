@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f65534bae1a22d4293ae6b08a808f12, type: 3}
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
-  ammoAmount: 0
-  batteryLevel: 4
-  weapons: 02000000
+  ammoAmount: 17
+  batteryLevel: 3
+  weapons: 0200000001000000
   selectedWeapon: 2
   command: 
   commandPrior: 
   textHint: 
   textHintPrio: 
+  timerText: -0.0018338915
+  timer2: -0.0019534007
