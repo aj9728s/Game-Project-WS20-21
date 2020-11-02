@@ -8,6 +8,7 @@ TagManager:
   - Mirror
   - DestroyableWall
   - InvWall
+  - PressWall
   layers:
   - Default
   - TransparentFX

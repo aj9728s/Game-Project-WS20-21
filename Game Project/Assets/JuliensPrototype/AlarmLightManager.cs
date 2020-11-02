@@ -35,4 +35,9 @@ public class AlarmLightManager : MonoBehaviour
         alarmEnabled = true;
     }
 
+    public void disableAlarm()
+    {
+        alarmEnabled = false;
+    }
+
 }
