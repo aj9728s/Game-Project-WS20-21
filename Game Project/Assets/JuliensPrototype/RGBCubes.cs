@@ -27,17 +27,16 @@ public class RGBCubes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(this.transform.position, player.transform.position));
+     
         if (Vector3.Distance(this.transform.position, player.transform.position) <= 2)
         {
-            Debug.Log("1");
+            
             command.command = "F";
             command.timerCommand = 0.1f;
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("13");
-
+               
                 if (red)
                 {
                     puzzleManager.red = (puzzleManager.red + 1) % 10;

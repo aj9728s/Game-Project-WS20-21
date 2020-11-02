@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f65534bae1a22d4293ae6b08a808f12, type: 3}
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
-  ammoAmount: 0
+  ammoAmount: 105
   batteryLevel: 4
-  weapons: 02000000030000000100000001000000
+  weapons: 0200000001000000
   selectedWeapon: 1
-  command: 
-  commandPrior: 
-  textHint: 
-  textHintPrio: 
-  timerText: -0.0033761417
-  timerCommand: 0
+  command: F
+  commandPrior: E
+  textHint: "Dies ist eine Hacking Station mit welcher sich in Zukunf beliebige Dinge
+    manipulieren lassen.Du wirst diese immer mit der angebenen Taste bedienen k\xF6nnen "
+  textHintPrio: "Du kannst Kameras mit den Tasten A und S bewegen um dir einen Vorteil
+    zu erschaffen.  \xDCbrigens... Pass immer auf deinen R\xFCcken auf "
+  timerText: 0.1
+  timerCommand: 0.054483503
   sneaking: 0

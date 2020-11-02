@@ -6,6 +6,9 @@ public class Flashlight : MonoBehaviour
 {
 
     [SerializeField]
+    private AudioClip click;
+
+    [SerializeField]
     private int weaponNR = 0;
 
     [SerializeField]
@@ -51,6 +54,7 @@ public class Flashlight : MonoBehaviour
 
         if (batteryLvl != 0 && Input.GetButtonDown("Fire1") && sWeapon == weaponNR)
         {
+            AudioSource.PlayClipAtPoint(click, Camera.main.transform.position,2f);
             ChangeState();
         }
 

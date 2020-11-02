@@ -15,6 +15,12 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private SOAmmoManager weaponManager;
 
+    [SerializeField]
+    private AudioClip shoot;
+
+    [SerializeField]
+    private AudioClip noAmmo;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,12 +30,19 @@ public class Shoot : MonoBehaviour
         if (sWeapon == weaponNR && Input.GetButtonDown("Fire1") && aWeapon != 0)
         {
             Shootf();
+            AudioSource.PlayClipAtPoint(shoot, Camera.main.transform.position, 1f);
             weaponManager.ammoAmount -= 1;
+        }
+
+        else if(sWeapon == weaponNR && Input.GetButtonDown("Fire1") && aWeapon == 0)
+        {
+            AudioSource.PlayClipAtPoint(noAmmo, Camera.main.transform.position, 2f);
         }
     }
 
     void Shootf()
     {
+
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position,firePoint.rotation);
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         rb.AddForce(firePoint.forward * bulletForce, ForceMode.VelocityChange);
