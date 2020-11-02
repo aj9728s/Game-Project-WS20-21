@@ -77,22 +77,22 @@ public class J_PlayerManagement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            impulse = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+            impulse = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            impulse = new Vector3(-Camera.main.transform.forward.x, 0, -Camera.main.transform.forward.z);
+            impulse = new Vector3(-cam.transform.forward.x, 0, -cam.transform.forward.z);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            impulse = new Vector3(-Camera.main.transform.right.x, 0, -Camera.main.transform.right.z);
+            impulse = new Vector3(-cam.transform.right.x, 0, -cam.transform.right.z);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            impulse = new Vector3(Camera.main.transform.right.x, 0, Camera.main.transform.right.z);
+            impulse = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
         }
 
         impulse.Normalize();
