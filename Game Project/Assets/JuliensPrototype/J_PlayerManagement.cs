@@ -73,6 +73,7 @@ public class J_PlayerManagement : MonoBehaviour
         // Player Movement 
         // ----------------------------------------------------------------------------------------------------------------------------------
 
+        /*
         Vector3 impulse = new Vector3();
 
         if (Input.GetKey(KeyCode.W))
@@ -94,6 +95,8 @@ public class J_PlayerManagement : MonoBehaviour
         {
             impulse = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
         }
+        */
+        Vector3 impulse = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
         impulse.Normalize();
 
