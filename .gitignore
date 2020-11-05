@@ -26,6 +26,9 @@ sysinfo.txt
 *.user
 *.userprefs
 *.pidb
+*.ide
+*.ide-shm
+*.ide-wal
 .DS_Store
 
 ###
