@@ -98,6 +98,9 @@ public class J_PlayerManagement : MonoBehaviour
         */
         Vector3 impulse = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
 
+        //Vector3 impulse = new Vector3(-Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal"));
+      
+
         impulse.Normalize();
 
         if (weaponManager.sneaking)
@@ -111,8 +114,8 @@ public class J_PlayerManagement : MonoBehaviour
         }
 
         playerRig.velocity = impulse + new Vector3(0.0f, -1f, 0.0f); ;
+        //this.GetComponent<CharacterController>().Move(impulse * 1/10);
 
-       
 
 
 
