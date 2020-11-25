@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class J_PlayerManagement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
+
     [SerializeField]
     private float walkSpeed = 3f;
     [SerializeField]
@@ -27,8 +28,8 @@ public class J_PlayerManagement : MonoBehaviour
     [SerializeField]
     public Camera cam;
 
-    [SerializeField]
-    private SOAmmoManager weaponManager;
+    //[SerializeField]
+    //private SOAmmoManager weaponManager;
 
     void Start()
     {
@@ -39,8 +40,11 @@ public class J_PlayerManagement : MonoBehaviour
 
     }
 
-    void Update()
+
+
+    void FixedUpdate()
     {
+
         if (!canMove)
         {
             return;
@@ -57,13 +61,7 @@ public class J_PlayerManagement : MonoBehaviour
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.down);
-
-    }
-
-    void FixedUpdate()
-    {
+        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
 
         if (!canMove)
         {
@@ -74,36 +72,17 @@ public class J_PlayerManagement : MonoBehaviour
         // Player Movement 
         // ----------------------------------------------------------------------------------------------------------------------------------
 
-        /*
+     
         Vector3 impulse = new Vector3();
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            impulse = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z);
-        }
+        impulse = new Vector3(-Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal"));
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            impulse = new Vector3(-cam.transform.forward.x, 0, -cam.transform.forward.z);
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            impulse = new Vector3(-cam.transform.right.x, 0, -cam.transform.right.z);
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            impulse = new Vector3(cam.transform.right.x, 0, cam.transform.right.z);
-        }
-        */
-        Vector3 impulse = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-
-        //Vector3 impulse = new Vector3(-Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal"));
-      
 
         impulse.Normalize();
 
+        impulse *= walkSpeed;
+
+        /*
         if (weaponManager.sneaking)
         {
             impulse *= sneakSpeed;
@@ -113,29 +92,9 @@ public class J_PlayerManagement : MonoBehaviour
         {
             impulse *= walkSpeed;
         }
-
+        */
         playerRig.velocity = impulse + new Vector3(0.0f, -1f, 0.0f); ;
         //this.GetComponent<CharacterController>().Move(impulse * 1/10);
-
-
-
-
-        // ----------------------------------------------------------------------------------------------------------------------------------
-        // Player Ligthning
-        // ----------------------------------------------------------------------------------------------------------------------------------
-
-        /*
-        if (Input.GetKeyDown(KeyCode.Q) && Time.time >= timestamp)
-        {
-            if(actualLightRange == lightRangeNumber -1)
-            {
-                actualLightRange = -1;
-            }
-            actualLightRange += 1;
-            playerLight.range = lightRange[actualLightRange];
-            timestamp = Time.time + 0.5f;
-        }
-        */
 
         // ----------------------------------------------------------------------------------------------------------------------------------
         // Player FallDmg
@@ -156,4 +115,5 @@ public class J_PlayerManagement : MonoBehaviour
     {
         canMove = false;
     }
+
 }
