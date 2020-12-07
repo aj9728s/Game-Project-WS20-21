@@ -72,7 +72,6 @@
       },
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
     "com.unity.progrids": {
       "version": "3.0.3-preview.6",
       "depth": 0,
@@ -82,8 +81,6 @@
       },
       "url": "https://packages.unity.com"
     },
-=======
->>>>>>> d1788139baf5e6300fc43955a3d4625029db830e
     "com.unity.settings-manager": {
       "version": "1.0.3",
       "depth": 1,
