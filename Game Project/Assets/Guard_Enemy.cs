@@ -28,6 +28,7 @@ public class Guard_Enemy : MonoBehaviour
     [SerializeField]
     private Transform pathHolder;
 
+    [SerializeField]
     private Transform player;
 
     [SerializeField]
@@ -42,9 +43,6 @@ public class Guard_Enemy : MonoBehaviour
     [SerializeField]
     private UnityEvent enableShoot;
 
-    [SerializeField]
-    private UnityEvent enableKnifing;
-    
     private bool spotted = false;
     private bool canSeeTrigger = false;
 
@@ -67,11 +65,7 @@ public class Guard_Enemy : MonoBehaviour
             {
                 enableShoot.Invoke();
             }
-            else if (knifingEnemy)
-            {
-                enableKnifing.Invoke();
-            }
-
+           
         }
 
         /*

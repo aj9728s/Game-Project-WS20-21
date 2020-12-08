@@ -16,9 +16,10 @@ public class KnifingEnemy : MonoBehaviour
 
     void Update()
     {
-
+        
         if (Vector3.Distance(transform.position, player.position) < killingDistance)
         {
+            
             playerDead.Invoke();
         }
     }
