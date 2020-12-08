@@ -36,10 +36,8 @@ public class Guard_Enemy : MonoBehaviour
     [SerializeField]
     private bool knifingEnemy = false;
 
-
     [SerializeField]
     private bool spottingDirectly = false;
-
 
     [SerializeField]
     private UnityEvent enableShoot;
@@ -55,20 +53,7 @@ public class Guard_Enemy : MonoBehaviour
 
     void Start()
     {
-        coroutine = FollowPath(new Vector3[pathHolder.childCount]);
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        viewAngle = spotlight.spotAngle;
-        originalSpotlightColour = spotlight.color;
-
-        Vector3[] waypoints = new Vector3[pathHolder.childCount];
-        for (int i = 0; i < waypoints.Length; i++)
-        {
-            waypoints[i] = pathHolder.GetChild(i).position;
-            waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
-        }
-
-        StartCoroutine(FollowPath(waypoints));
-
+        
     }
 
     void Update()
@@ -189,6 +174,24 @@ public class Guard_Enemy : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
+    }
+
+    public void triggerEnemie()
+    {
+        coroutine = FollowPath(new Vector3[pathHolder.childCount]);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        viewAngle = spotlight.spotAngle;
+        originalSpotlightColour = spotlight.color;
+
+        Vector3[] waypoints = new Vector3[pathHolder.childCount];
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            waypoints[i] = pathHolder.GetChild(i).position;
+            waypoints[i] = new Vector3(waypoints[i].x, transform.position.y, waypoints[i].z);
+        }
+
+        StartCoroutine(FollowPath(waypoints));
+
     }
 
 }
