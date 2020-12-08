@@ -33,8 +33,8 @@ public class PickupObjects : MonoBehaviour
     [SerializeField]
     public int weaponNR;
 
-    [SerializeField]
-    private GameObject textHintLayout;
+    //[SerializeField]
+    //private GameObject textHintLayout;
 
     [SerializeField]
     private string weaponHint;
