@@ -16,5 +16,5 @@ MonoBehaviour:
   commandPrior: 
   textHint: 
   textHintPrio: 
-  timerText: 0
-  timerCommand: 0
+  timerText: -0.007878087
+  timerCommand: -0.0055502513
