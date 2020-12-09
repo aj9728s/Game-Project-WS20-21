@@ -26,6 +26,9 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
 
     [SerializeField]
+    private float gravity = -2;
+
+    [SerializeField]
     public Camera cam;
 
     //[SerializeField]
@@ -93,7 +96,9 @@ public class PlayerMovement : MonoBehaviour
             impulse *= walkSpeed;
         }
         */
-        playerRig.velocity = impulse + new Vector3(0.0f, -1f, 0.0f); ;
+
+        //playerRig.AddForce(impulse, ForceMode.VelocityChange);
+        playerRig.velocity = impulse + new Vector3(0.0f, gravity, 0.0f); ;
         //this.GetComponent<CharacterController>().Move(impulse * 1/10);
 
         // ----------------------------------------------------------------------------------------------------------------------------------
