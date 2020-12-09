@@ -6795,6 +6795,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!4 &873644047
 Transform:
   m_ObjectHideFlags: 0
@@ -6829,6 +6830,30 @@ GameObject:
   m_Layer: 0
   m_Name: Cube (14)
 =======
+=======
+--- !u!4 &639073590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8197569618451051568, guid: f2a94f78cb190d143ab329a2180c3678,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101180726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639073589}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1218242498}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &639073591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 8197569619679114449, guid: f2a94f78cb190d143ab329a2180c3678,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101180726}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of 2ff743b... dies das
   m_GameObject: {fileID: 639073589}
   m_Enabled: 1
   m_EditorHideFlags: 0

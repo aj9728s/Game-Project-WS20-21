@@ -15734,6 +15734,7 @@ Transform:
   m_PrefabInstance: {fileID: 1869583119}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
 =======
@@ -15795,6 +15796,8 @@ Transform:
 >>>>>>> Stashed changes:Game Project/Assets/TestScenes/JuliensTestScene.unity
 =======
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
 =======
 >>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
 --- !u!4 &1308021831 stripped
@@ -27699,6 +27702,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
 <<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
       value: -18.29
@@ -27708,6 +27712,9 @@ PrefabInstance:
 =======
       value: -0.1
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+      value: -18.29
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
 =======
       value: -18.29
 >>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
@@ -27721,6 +27728,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
 <<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
       value: -41.14
@@ -27730,6 +27738,9 @@ PrefabInstance:
 =======
       value: -2.7
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+      value: -41.14
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
 =======
       value: -41.14
 >>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
