@@ -18375,6 +18375,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 1517321025}
   m_LocalRotation: {x: 0.09208391, y: 0.94302595, z: -0.22296317, w: 0.2291508}
   m_LocalPosition: {x: 0.6011136, y: -0.60004246, z: 0.9483726}
@@ -18384,6 +18385,22 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -9.278001, y: 109.47001, z: 25.483002}
 --- !u!1 &1533874379
+=======
+  m_GameObject: {fileID: 1200245850}
+  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalPosition: {x: -23.276, y: 3.35, z: 69.92}
+  m_LocalScale: {x: 1.4, y: 0.1, z: 3}
+  m_Children:
+  - {fileID: 1484236060}
+  - {fileID: 575415732}
+  - {fileID: 1552793441}
+  - {fileID: 1896630504}
+  - {fileID: 1047079926}
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!1 &1202542211
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 1438560749455460015, guid: 36d48319c35409b4e9470bea4d80377d,
@@ -24873,7 +24890,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951970473}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< Updated upstream
 --- !u!1 &1953320503
+=======
+--- !u!4 &1870040390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870040386}
+  m_LocalRotation: {x: -0.060920298, y: 0.92627615, z: -0.32533666, w: 0.18015881}
+  m_LocalPosition: {x: -0.534, y: -1.196, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1835908326}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 35.504, y: 152.699, z: -16.417002}
+--- !u!1 &1872772401
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28288,7 +28323,11 @@ PrefabInstance:
     - target: {fileID: 53600156587018847, guid: 82abe94bb1b839841bf33b33ab44cc8c,
         type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< Updated upstream
       value: 3.333
+=======
+      value: 3.35
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 53600156587018847, guid: 82abe94bb1b839841bf33b33ab44cc8c,
         type: 3}
