@@ -13,8 +13,23 @@ MonoBehaviour:
   m_Name: DialogueLVL1
   m_EditorClassIdentifier: 
   dialogue:
-  - Dies ist der erste Test
-  - Dies ist der zweite Test
+  - Hallo Pepe
+  - Du weisst zwar nicht wer ich bin, aber ich werde dir helfen
+  - "Ich werde f\xFCr eine Ablenkung sorgen, dann kannst du versuchen zu entkommen. "
+  - Du kannst mit W,A,S,D laufen und mit F mit Sachen interagieren
+  - "Versuche aus dem Gef\xE4ngnis zu entkommen, in dem du den Fahrstuhl am Ende
+    des Levels erreichst"
+  - "In Leveln kannst du Gegenst\xE4nde finden, die dir helfen k\xF6nnen"
+  - Aber sei auf der Hut vor  den anderen Gefangenen und Wachen
+  - "Wenn du bereit bist, klopf einfach an der T\xFCr"
+  - "Du schaffst das schon. Wir h\xF6ren voneinander"
   nameChar:
-  - Tester 1
-  - Tester 2
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
+  - '... unkown... '
