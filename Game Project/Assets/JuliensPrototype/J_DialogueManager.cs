@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-public class DialogueManager : MonoBehaviour
+public class J_DialogueManager : MonoBehaviour
 {
     [SerializeField]
     private UnityEvent personDialogue1;
