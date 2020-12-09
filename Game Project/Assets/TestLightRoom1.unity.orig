@@ -1932,7 +1932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198209348}
   m_Layer: 0
-  m_Name: PlayerCell (1)
+  m_Name: PlayerCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2162,7 +2162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209996758}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a063644c1526774e9c6410815bee425, type: 3}
   m_Name: 
@@ -20819,15 +20819,26 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 677559138}
+<<<<<<< HEAD
+    - target: {fileID: 2694409856726422902, guid: 2f009d66b63798249a7801da8acc9f25,
+        type: 3}
+      propertyPath: m_Mass
+      value: 40
+=======
     - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: walkSpeed
       value: 8
+>>>>>>> 8e816f0b7c3fd8078e5d52d5d660c58c4e5ce84f
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
+      value: -18.03
+=======
       value: -2.16
+>>>>>>> 8e816f0b7c3fd8078e5d52d5d660c58c4e5ce84f
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
@@ -20837,7 +20848,11 @@ PrefabInstance:
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD
+      value: 32.78
+=======
       value: 1.34
+>>>>>>> 8e816f0b7c3fd8078e5d52d5d660c58c4e5ce84f
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
