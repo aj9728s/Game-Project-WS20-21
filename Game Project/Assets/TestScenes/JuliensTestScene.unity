@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbac076d60d4e6644a5780a407aa806c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   images:
   - {fileID: 21300000, guid: ae69bdf8cfb1e334082151d27090c7f6, type: 3}
   - {fileID: 21300000, guid: b7d2ccdd2872bea4a96b06670999c722, type: 3}
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3eba077c22d9674e89bc14adca07d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   WeaponPickUpPrefab: {fileID: 4043422747580914124, guid: daa09de6b46f6c045af327ccf0b5f8ba,
     type: 3}
   player: {fileID: 198823035}
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6f51c233670084ea4b8b280b7d92a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   securityCamera: {fileID: 158157140}
   bomb: {fileID: 4270431626180889266}
   ceiling: {fileID: 1367685730}
@@ -3209,7 +3209,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   exitDoor: {fileID: 8824442825455128385}
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   You: {fileID: 1972088690}
   Enemy: {fileID: 1247321225}
   solutionID: 12345
@@ -4632,7 +4632,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  dialogueLvl1: {fileID: 0}
+  dialogueLvl1: {fileID: 11400000, guid: aa807853d45a33c44a9b788b9b9f3d51, type: 2}
 --- !u!1 &382608568
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,7 +5025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422255173}
   m_LocalRotation: {x: 0.6959956, y: -0.0005950681, z: 0.0007531684, w: 0.7180455}
-  m_LocalPosition: {x: 45.32, y: 8.44, z: 57.81}
+  m_LocalPosition: {x: -0.33, y: 8.44, z: -2.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5802,7 +5802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e338e3338bcaac04488773a09db73610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleManager: {fileID: 0}
+  puzzleManager: {fileID: 11400000, guid: 30973fb2aea901f41a42a78a17d0e551, type: 2}
   RGBSolution: {x: 6, y: 2, z: 9}
 --- !u!1001 &480695461
 PrefabInstance:
@@ -7936,7 +7936,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3abd3f4b1e409ad4891a311ba0a5a1bf, type: 3}
   - {fileID: 21300000, guid: 333deaff9f49de94585cc1503d075fe7, type: 3}
   - {fileID: 21300000, guid: c52acef69f4566645b3593678213f7e9, type: 3}
-  ammoManager: {fileID: 0}
+  ammoManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!1 &641879023
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,8 +8368,8 @@ MonoBehaviour:
   blue: 1
   player: {fileID: 198823035}
   green: 0
-  puzzleManager: {fileID: 0}
-  command: {fileID: 0}
+  puzzleManager: {fileID: 11400000, guid: 30973fb2aea901f41a42a78a17d0e551, type: 2}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!4 &673902166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2011587920301977276, guid: 7c631a4c98045b0468057e660dc1a613,
@@ -9596,7 +9596,7 @@ MonoBehaviour:
         m_CallState: 2
   triggerForEnemies: 1
   triggerEnemies: {fileID: 1003249402}
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   weaponNR: 1
   textHintLayout: {fileID: 1060510750}
   weaponHint: Du hast eine Pistole ergattert! Damit kannst du dich nun gegen deine
@@ -10182,7 +10182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoNumber: 5
-  ammoManager: {fileID: 0}
+  ammoManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   reload: {fileID: 8300000, guid: 0cfed069a67f1354ab059222d7966f6c, type: 3}
 --- !u!4 &807506590
 Transform:
@@ -12150,8 +12150,8 @@ MonoBehaviour:
   blue: 0
   player: {fileID: 198823035}
   green: 0
-  puzzleManager: {fileID: 0}
-  command: {fileID: 0}
+  puzzleManager: {fileID: 11400000, guid: 30973fb2aea901f41a42a78a17d0e551, type: 2}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!1 &968920178
 GameObject:
   m_ObjectHideFlags: 0
@@ -12549,7 +12549,7 @@ MonoBehaviour:
       m_Calls: []
   triggerForEnemies: 0
   triggerEnemies: {fileID: 0}
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   weaponNR: 3
   textHintLayout: {fileID: 1060510750}
   weaponHint: "Wof\xFCr der wohl gut sein mag?"
@@ -13291,7 +13291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb465ec1dd4372f45904be1fb0908f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TextHint: {fileID: 0}
+  TextHint: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   timeRemaining: 200
 --- !u!114 &1060510753
 MonoBehaviour:
@@ -13498,7 +13498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 3
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   startPlayerMov:
     m_PersistentCalls:
       m_Calls:
@@ -14720,7 +14720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba889fd39c31e04099968a2d827d8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   SecurityCamReset: {fileID: 659428833}
 --- !u!4 &1165757188
 Transform:
@@ -15014,8 +15014,8 @@ MonoBehaviour:
   blue: 0
   player: {fileID: 198823035}
   green: 1
-  puzzleManager: {fileID: 0}
-  command: {fileID: 0}
+  puzzleManager: {fileID: 11400000, guid: 30973fb2aea901f41a42a78a17d0e551, type: 2}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!1001 &1214112317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15726,13 +15726,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7611a3f773213544ad304c79e35d4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  commandSO: {fileID: 0}
+  commandSO: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!4 &1300992309 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2011587920301977276, guid: 7c631a4c98045b0468057e660dc1a613,
     type: 3}
   m_PrefabInstance: {fileID: 1869583119}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
 =======
@@ -15794,6 +15795,8 @@ Transform:
 >>>>>>> Stashed changes:Game Project/Assets/TestScenes/JuliensTestScene.unity
 =======
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
 --- !u!4 &1308021831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4503225882661646920, guid: 1ad61b54751d1034aa977062925ab92b,
@@ -16134,7 +16137,7 @@ MonoBehaviour:
   player: {fileID: 198823035}
   weaponHint: Gift um Suizid zu begehen
   weaponNR: 4
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   dialogueTriggerlvl1:
     m_PersistentCalls:
       m_Calls:
@@ -19412,7 +19415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01116f6c586bdb4e852d3a75d07b259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   triggerEnemies: {fileID: 1843750438}
   securityCamera: {fileID: 659428833}
   mainCamera: {fileID: 422255173}
@@ -21962,7 +21965,7 @@ MonoBehaviour:
     type: 3}
   bulletForce: 20
   weaponNR: 1
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   shoot: {fileID: 8300000, guid: 417ac6bcdee768b4eaab8972c026061c, type: 3}
   noAmmo: {fileID: 8300000, guid: e62fa6225f485064a8eb8411ed7efb52, type: 3}
 --- !u!108 &1776423576
@@ -22040,7 +22043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   click: {fileID: 8300000, guid: 04c18c49b0946694ea92b672debbb383, type: 3}
   weaponNR: 2
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   maxTime: 60
 --- !u!114 &1776423578
 MonoBehaviour:
@@ -22055,7 +22058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNR: 3
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   door: {fileID: 743016995}
 --- !u!114 &1776423579
 MonoBehaviour:
@@ -22070,7 +22073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNR: 4
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   playerDied:
     m_PersistentCalls:
       m_Calls:
@@ -22191,7 +22194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6f51c233670084ea4b8b280b7d92a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  command: {fileID: 0}
+  command: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   securityCamera: {fileID: 158157140}
   bomb: {fileID: 4270431626180889266}
   ceiling: {fileID: 1367685730}
@@ -23131,7 +23134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNR: 5
-  weaponManager: {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
 --- !u!65 &1881389820
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27695,6 +27698,7 @@ PrefabInstance:
     - target: {fileID: 4270431627261830303, guid: bd1b9f648602b5f4abc0bc8213500d68,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
       value: -18.29
@@ -27704,6 +27708,9 @@ PrefabInstance:
 =======
       value: -0.1
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+      value: -18.29
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 4270431627261830303, guid: bd1b9f648602b5f4abc0bc8213500d68,
         type: 3}
@@ -27713,6 +27720,7 @@ PrefabInstance:
     - target: {fileID: 4270431627261830303, guid: bd1b9f648602b5f4abc0bc8213500d68,
         type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD:Game Project/Assets/TestScenes/JuliensTestScene.unity
 <<<<<<< HEAD:Game Project/Assets/Scenes/JuliensTestScene.unity
 <<<<<<< Updated upstream:Game Project/Assets/Scenes/JuliensTestScene.unity
       value: -41.14
@@ -27722,6 +27730,9 @@ PrefabInstance:
 =======
       value: -2.7
 >>>>>>> main:Game Project/Assets/TestScenes/JuliensTestScene.unity
+=======
+      value: -41.14
+>>>>>>> parent of 2ff743b... dies das:Game Project/Assets/Scenes/JuliensTestScene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 4270431627261830303, guid: bd1b9f648602b5f4abc0bc8213500d68,
         type: 3}
@@ -27888,7 +27899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponNr: 0100000003000000
-  weapons: {fileID: 0}
+  weapons: {fileID: 11400000, guid: e0fe467356fca1647a33cc8c5187ecf1, type: 2}
   playerDied:
     m_PersistentCalls:
       m_Calls:
