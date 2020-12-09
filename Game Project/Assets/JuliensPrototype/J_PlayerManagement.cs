@@ -57,7 +57,8 @@ public class J_PlayerManagement : MonoBehaviour
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
+
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.down);
 
     }
 
