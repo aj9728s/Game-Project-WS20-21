@@ -170,7 +170,7 @@ public class GuardEnemy : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
     }
 
-    public void triggerEnemie()
+    public void TriggerEnemie()
     {
         coroutine = FollowPath(new Vector3[pathHolder.childCount]);
         player = GameObject.FindGameObjectWithTag("Player").transform;

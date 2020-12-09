@@ -44,7 +44,7 @@ public class Flashlight : MonoBehaviour
         }
         else
         {
-            this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponent<MeshRenderer>().enabled = false;
             this.GetComponent<BoxCollider>().enabled = false;
         }
 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
   ammoAmount: 0
-  batteryLevel: 0
+  batteryLevel: 4
   weapons: 
   weaponsName: []
-  selectedWeapon: 0
+  selectedWeapon: 1
   sneaking: 0
