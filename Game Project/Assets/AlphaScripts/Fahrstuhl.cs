@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Fahrstuhl : MonoBehaviour
 {
     [SerializeField]
-    private float timeClosingDoor;
+    private float delayClosingDoor;
+
+    [SerializeField]
+    private float delayMovingElevator;
 
     [SerializeField]
     private float timeSzeneSwap;
@@ -36,6 +40,7 @@ public class Fahrstuhl : MonoBehaviour
 
     private bool startMoving = false;
 
+    private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,14 +62,14 @@ public class Fahrstuhl : MonoBehaviour
 
     IEnumerator closeDoor()
     {
-        yield return new WaitForSeconds(timeClosingDoor);
-        // ClosingDoor.Invoke();
-        // deactivating Player Movement
-        player.GetComponent<PlayerMovement>().enabled = false;
-        float yt = player.transform.position.y;
-        player.transform.SetParent(transform);
-        
+        yield return new WaitForSeconds(delayClosingDoor);
+        ClosingDoor.Invoke();
+        yield return new WaitForSeconds(delayMovingElevator);
+
+        offset = player.transform.position - transform.position;
+    
         startMoving = true;
+
         StartCoroutine(changeSzene());
 
     }
@@ -72,8 +77,8 @@ public class Fahrstuhl : MonoBehaviour
     IEnumerator changeSzene()
     {
         yield return new WaitForSeconds(timeSzeneSwap);
-        player.transform.SetParent(null);
-        Destroy(this.gameObject);
+        Scene actualScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame
@@ -81,6 +86,15 @@ public class Fahrstuhl : MonoBehaviour
     {
         if (startMoving)
         {
+            
+
+        }
+    }
+    void LateUpdate()
+    {
+        if (startMoving)
+        {
+
             if (zDirection_p)
                 transform.position += transform.forward * Time.deltaTime * speed;
             else if (xDirection_p)
@@ -89,10 +103,15 @@ public class Fahrstuhl : MonoBehaviour
                 transform.position -= transform.right * Time.deltaTime * speed;
             else if (zDirection_n)
                 transform.position -= transform.forward * Time.deltaTime * speed;
+
+            player.transform.position = transform.position + offset;
+
+            
         }
     }
 
 
 
-  
+
+
 }
