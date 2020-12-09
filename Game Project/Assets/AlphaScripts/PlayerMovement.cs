@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canMove = true;
 
     [SerializeField]
-    private float gravity = -1;
+    private float gravity = -2;
 
     [SerializeField]
     public Camera cam;
