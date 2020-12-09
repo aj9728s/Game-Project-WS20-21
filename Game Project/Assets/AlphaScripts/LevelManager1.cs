@@ -10,8 +10,12 @@ public class LevelManager1 : MonoBehaviour
     [SerializeField]
     private SOWeaponManager weaponManager;
 
+    [SerializeField]
+    private UnityEvent deathScreenTrigger;
     public void PlayerDied()
     {
+        deathScreenTrigger.Invoke();
+
         if (weaponManager.weapons.Count == 1)
         {
             deadAfterGettingFlashlight();
@@ -27,8 +31,8 @@ public class LevelManager1 : MonoBehaviour
     private void deadBeforeGettingFlashlight()
     {
         // DEAD SZENE ???
-        Scene actualScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(actualScene.buildIndex);
+        //Scene actualScene = SceneManager.GetActiveScene();
+        //SceneManager.LoadScene(actualScene.buildIndex);
 
         weaponManager.ammoAmount = 0;
         weaponManager.batteryLevel = 4;
@@ -40,8 +44,8 @@ public class LevelManager1 : MonoBehaviour
     private void deadAfterGettingFlashlight()
     {
         // DEAD SZENE ???
-        Scene actualScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(actualScene.buildIndex);
+        //Scene actualScene = SceneManager.GetActiveScene();
+       // SceneManager.LoadScene(actualScene.buildIndex);
 
         weaponManager.ammoAmount = 0;
         weaponManager.batteryLevel = 4;

@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Button : MonoBehaviour
 {
     [SerializeField]
+    private SOHintManager button1;
+    [SerializeField]
     private UnityEvent method1;
 
     [SerializeField]
@@ -47,8 +49,14 @@ public class Button : MonoBehaviour
         {
            
             // Hint Design
-
-            if (Input.GetKeyDown(KeyCode.E))
+            if(oneTimeUse){
+                button1.command = "F";
+            }
+            else{
+                button1.command = "";
+            }
+            
+            if (Input.GetKeyDown(KeyCode.F))
             {
 
                 if (oneTimeUse)
