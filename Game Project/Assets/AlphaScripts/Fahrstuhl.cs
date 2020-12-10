@@ -48,6 +48,8 @@ public class Fahrstuhl : MonoBehaviour
 
     private Vector3 offset;
     // Start is called before the first frame update
+    [SerializeField]
+    private SOWeaponManager weaponManager;
     void Start()
     {
         
@@ -86,8 +88,12 @@ public class Fahrstuhl : MonoBehaviour
     }
 
     IEnumerator changeSzene()
-    {
+    {   
+        
         yield return new WaitForSeconds(timeSzeneSwap);
+        weaponManager.selectedWeapon = 0;
+        weaponManager.weapons.Clear();
+        weaponManager.weaponsName.Clear();
         Scene actualScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(0);
     }

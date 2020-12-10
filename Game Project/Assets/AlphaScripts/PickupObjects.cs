@@ -48,6 +48,8 @@ public class PickupObjects : MonoBehaviour
     [SerializeField]
     private string weaponHint;
 
+    private bool pickedUP = false;
+
     //[SerializeField]
     //private GameObject GunLayout;
 
@@ -77,7 +79,8 @@ public class PickupObjects : MonoBehaviour
     }
 
     void Update() {
-        if (weapon && withDistanceTrigger){
+        if (weapon && withDistanceTrigger && !pickedUP){
+            pickedUP = true;
            if( Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance){
                 hintManager.textHint = weaponHint;
                 hintManager.timerText = durationHint;
