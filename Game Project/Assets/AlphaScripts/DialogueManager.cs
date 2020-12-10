@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private UnityEvent resetHint;
 
+    [SerializeField]
+    private GameObject player;
+
     private TextMeshProUGUI text;
 
     private TextMeshProUGUI nameChar;
@@ -56,6 +59,7 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogueState == dialogue.dialogue.Length - 1 && Input.GetKey(KeyCode.E))
             {
+
                 augmentDialogueState();
             }
 
@@ -68,6 +72,7 @@ public class DialogueManager : MonoBehaviour
        
         if (dialogueEnabled && dialogueState == dialogue.dialogue.Length - 1)
         {
+            player.GetComponent<PlayerMovement>().enabled = true;
             resetHint.Invoke();
             dialogueEnabled = false;
          
@@ -92,7 +97,9 @@ public class DialogueManager : MonoBehaviour
 
     public void activateDialogue()
     {
+
         dialogueEnabled = true;
+        player.GetComponent<PlayerMovement>().enabled = false;
         dialogueState = 0;
         
 

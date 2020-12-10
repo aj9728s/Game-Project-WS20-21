@@ -753,17 +753,17 @@ PrefabInstance:
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.33
+      value: -23.936
       objectReference: {fileID: 0}
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.426
+      value: -11.491
       objectReference: {fileID: 0}
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.265
+      value: -21.819
       objectReference: {fileID: 0}
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
@@ -825,6 +825,26 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522967849036752695, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522967849036752695, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522967849786913760, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522967849786913760, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17
+      objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: openLeft
@@ -835,7 +855,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa, type: 3}
+    - {fileID: 6522967849036752680, guid: f6de65899446ea44bb1f1e73eee359fa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f6de65899446ea44bb1f1e73eee359fa, type: 3}
 --- !u!1 &459341809 stripped
 GameObject:
@@ -849,13 +871,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 459341808}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &459341811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6522967849036752694, guid: f6de65899446ea44bb1f1e73eee359fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 459341808}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &459341812
+--- !u!114 &459341811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -864,31 +880,43 @@ MonoBehaviour:
   m_GameObject: {fileID: 459341809}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a063644c1526774e9c6410815bee425, type: 3}
+  m_Script: {fileID: 11500000, guid: c9e7b2e2bdc47e84cbb16f582638960b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openRight: 0
-  openLeft: 1
-  rotateSpeed: 0.000005
-  moveSpeed: 0.000005
-  angleRotation: 180
---- !u!114 &459341813
+  player: {fileID: 1608932760}
+  hintTriggerDistance: 3
+  hintManager: {fileID: 11400000, guid: b89a4d10901e77048ace88ab06b11994, type: 2}
+  buttonHint: F
+  triggerAfterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 459341812}
+        m_MethodName: gotKnocked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &459341812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 459341811}
-  m_Enabled: 0
+  m_GameObject: {fileID: 459341809}
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a063644c1526774e9c6410815bee425, type: 3}
+  m_Script: {fileID: 11500000, guid: 564f5b31d0ca20343ab3b11d4411842d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openRight: 1
-  openLeft: 1
-  rotateSpeed: 0.000005
-  moveSpeed: 0.000005
-  angleRotation: 180
+  knock: {fileID: 8300000, guid: 9e4b011483d720e45a503b4689bc0d43, type: 3}
+  explosion: {fileID: 8300000, guid: 7318e660511c6bc4797966e6e1b8f366, type: 3}
+  CameraPosition: {fileID: 1167380979}
+  timeSzeneSwap: 5
 --- !u!1 &510289473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2536,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  player: {fileID: 1608932760}
   dialogue: {fileID: 11400000, guid: 2f2bdf732a66f8a4d9e955ebb18887e4, type: 2}
 --- !u!1 &1325402270
 GameObject:
@@ -3049,6 +3078,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1269344428}
         m_MethodName: activateDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OtherTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 459341812}
+        m_MethodName: enableHint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3931,7 +3974,7 @@ MonoBehaviour:
   doorOpen:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 459341812}
+      - m_Target: {fileID: 0}
         m_MethodName: openDoor
         m_Mode: 1
         m_Arguments:

@@ -18,6 +18,9 @@ public class DialogueTrigger : MonoBehaviour
     private UnityEvent dialogueTrigger;
 
     [SerializeField]
+    private UnityEvent OtherTrigger;
+
+    [SerializeField]
     private string buttonHint;
 
     private bool fPressed = false;
@@ -36,6 +39,7 @@ public class DialogueTrigger : MonoBehaviour
             {
                 fPressed = true;
                 dialogueTrigger.Invoke();
+                OtherTrigger.Invoke();
             }
 
         }
