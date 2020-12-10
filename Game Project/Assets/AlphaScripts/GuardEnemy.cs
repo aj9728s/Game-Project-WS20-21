@@ -6,7 +6,11 @@ using UnityEngine.Events;
 public class GuardEnemy : MonoBehaviour
 {
     [SerializeField]
+    private float pathSpeed = 5;
+
+    [SerializeField]
     private float speed = 5;
+
     [SerializeField]
     private float waitTimeBetweenWayPoints = .3f;
     [SerializeField]
@@ -114,7 +118,7 @@ public class GuardEnemy : MonoBehaviour
 
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
             if (transform.position == targetWaypoint)
             {
 

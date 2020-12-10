@@ -5447,12 +5447,12 @@ PrefabInstance:
     - target: {fileID: 6522967849036752680, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: rotateSpeed
-      value: 0.005
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849036752680, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.005
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
@@ -5462,12 +5462,12 @@ PrefabInstance:
     - target: {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: rotateSpeed
-      value: 0.005
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: moveSpeed
-      value: 0.005
+      value: 0.001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6de65899446ea44bb1f1e73eee359fa, type: 3}
@@ -13715,6 +13715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df02cb766dcad345ac89418daa130c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathSpeed: 2.5
   speed: 5
   waitTimeBetweenWayPoints: 0.3
   turnSpeed: 90
