@@ -40,12 +40,20 @@ public class Flashlight : MonoBehaviour
         if (sWeapon == weaponNR)
         {
             this.GetComponent<MeshRenderer>().enabled = true;
+            this.GetComponentsInChildren<MeshRenderer>()[2].enabled = true;
+            this.GetComponentsInChildren<MeshRenderer>()[1].enabled = true;
             this.GetComponent<BoxCollider>().enabled = true;
+            this.GetComponentsInChildren<BoxCollider>()[2].enabled = true;
+            this.GetComponentsInChildren<BoxCollider>()[1].enabled = true;
         }
         else
         {
             this.GetComponent<MeshRenderer>().enabled = false;
+            this.GetComponentsInChildren<MeshRenderer>()[2].enabled = false;
+            this.GetComponentsInChildren<MeshRenderer>()[1].enabled = false;
             this.GetComponent<BoxCollider>().enabled = false;
+            this.GetComponentsInChildren<BoxCollider>()[2].enabled = false;
+            this.GetComponentsInChildren<BoxCollider>()[1].enabled = false;
         }
 
         if (flashlightStatus)

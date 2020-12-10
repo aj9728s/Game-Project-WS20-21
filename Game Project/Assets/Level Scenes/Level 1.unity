@@ -763,7 +763,7 @@ PrefabInstance:
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -21.819
+      value: -19.822
       objectReference: {fileID: 0}
     - target: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
@@ -828,22 +828,32 @@ PrefabInstance:
     - target: {fileID: 6522967849036752695, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.05
+      value: 0.052533
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849036752695, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.27
+      value: -0.47401
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522967849036752695, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.6921
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913760, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.05
+      value: 0.052533
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913760, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.17
+      value: -0.37401
+      objectReference: {fileID: 0}
+    - target: {fileID: 6522967849786913760, guid: f6de65899446ea44bb1f1e73eee359fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1272
       objectReference: {fileID: 0}
     - target: {fileID: 6522967849786913761, guid: f6de65899446ea44bb1f1e73eee359fa,
         type: 3}
@@ -884,7 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1608932760}
-  hintTriggerDistance: 3
+  hintTriggerDistance: 2.5
   hintManager: {fileID: 11400000, guid: b89a4d10901e77048ace88ab06b11994, type: 2}
   buttonHint: F
   triggerAfterAction:

@@ -32,7 +32,7 @@ public class HintButtonTrigger : MonoBehaviour
                 hintManager.timerCommand = 0.1f;
             }
 
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 triggerAfterAction.Invoke();
                 fPressed = true;
