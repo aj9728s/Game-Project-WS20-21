@@ -41,6 +41,8 @@ public class Button : MonoBehaviour
 
     private int counter = 0;
 
+    private bool oneTimeUseBool = true;
+
     // Update is called once per frame
     void Update()
     {
@@ -49,8 +51,10 @@ public class Button : MonoBehaviour
         {
            
             // Hint Design
-            if(oneTimeUse){
+            if(oneTimeUseBool)
+            {
                 button1.command = "F";
+                button1.timerCommand = 0.1f;
             }
             else{
                 button1.command = "";
@@ -61,6 +65,7 @@ public class Button : MonoBehaviour
 
                 if (oneTimeUse)
                 {
+                    oneTimeUseBool = false;
                     method1.Invoke();
                     method1Done = true;
                     if(!triggerMethod2)

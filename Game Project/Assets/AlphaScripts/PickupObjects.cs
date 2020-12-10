@@ -79,9 +79,9 @@ public class PickupObjects : MonoBehaviour
     }
 
     void Update() {
-        if (weapon && withDistanceTrigger && !pickedUP){
-            pickedUP = true;
-           if( Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance){
+        if (weapon && withDistanceTrigger){
+       
+           if( Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance && !pickedUP){
                 hintManager.textHint = weaponHint;
                 hintManager.timerText = durationHint;
                 weaponManager.weapons.Add(weaponNR);
@@ -90,7 +90,7 @@ public class PickupObjects : MonoBehaviour
 
                 //GunLayout.SetActive(true);
                 triggerAfterPickup.Invoke();
-
+                pickedUP = true;
                 Destroy(gameObject, timerObjectDestroy);    
            }
         }
