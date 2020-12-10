@@ -8820,6 +8820,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86f415fc112e4b40999bb0c5b8808fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  withTrigger: 0
+  withDistanceTrigger: 0
+  hintTriggerDistance: 0
   weapon: 1
   ammo: 0
   triggerAfterPickup:
@@ -16483,7 +16487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1514512521
 Light:
   m_ObjectHideFlags: 0
@@ -24623,6 +24627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: walkSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
+        type: 3}
+      propertyPath: gravity
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
