@@ -13,6 +13,12 @@ public class Fahrstuhl : MonoBehaviour
     private float delayMovingElevator;
 
     [SerializeField]
+    private float delayMovingCamera;
+
+    [SerializeField]
+    private Camera camera;
+
+    [SerializeField]
     private float timeSzeneSwap;
 
     [SerializeField]
@@ -64,10 +70,15 @@ public class Fahrstuhl : MonoBehaviour
     {
         yield return new WaitForSeconds(delayClosingDoor);
         ClosingDoor.Invoke();
+
+        camera.GetComponent<TopDownFollowCamera>().TargetOffset.y += 5;
         yield return new WaitForSeconds(delayMovingElevator);
 
         offset = player.transform.position - transform.position;
-    
+
+        camera.GetComponent<TopDownFollowCamera>().enabled = false;
+
+       
         startMoving = true;
 
         StartCoroutine(changeSzene());

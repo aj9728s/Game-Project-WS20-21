@@ -7,8 +7,8 @@ public class TopDownFollowCamera : MonoBehaviour
     
     [SerializeField]
     private Transform player;
-    [SerializeField]
-    private Vector3 TargetOffset;
+
+    public Vector3 TargetOffset;
     [SerializeField]
     private float MoveSpeed = 2f;
 

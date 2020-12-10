@@ -59,7 +59,7 @@ public class DoorElevator : MonoBehaviour
 
         if (closeDirection == 1)
         {
-            while (transform.localPosition.z < destPos.z - 0.1)
+            while (transform.localPosition.z < destPos.z)
             {
                 transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.time);
                 yield return null;
@@ -67,7 +67,7 @@ public class DoorElevator : MonoBehaviour
         }
         else
         {
-            while (transform.localPosition.z > destPos.z + 0.1)
+            while (transform.localPosition.z > destPos.z)
             {
                 transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.time);
                 yield return null;
