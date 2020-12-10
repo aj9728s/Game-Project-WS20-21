@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour
 {
-    [SerializeField]
-    private SOHintManager button1;
+  
     [SerializeField]
     private UnityEvent method1;
 
@@ -49,17 +48,7 @@ public class Button : MonoBehaviour
    
         if (Vector3.Distance(transform.position, player.position) <= triggerDistance)
         {
-           
-            // Hint Design
-            if(oneTimeUseBool)
-            {
-                button1.command = "F";
-                button1.timerCommand = 0.1f;
-            }
-            else{
-                button1.command = "";
-            }
-            
+          
             if (Input.GetKeyDown(KeyCode.F))
             {
 

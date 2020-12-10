@@ -45,4 +45,9 @@ public class HintButtonTrigger : MonoBehaviour
     {
         fPressed = false;
     }
+
+    public void destroyScript()
+    {
+        this.GetComponent<HintButtonTrigger>().enabled = false;
+    }
 }

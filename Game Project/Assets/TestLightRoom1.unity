@@ -13821,6 +13821,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerDeadBool: 1
 --- !u!54 &1261013211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21709,6 +21710,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810559038}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1812400840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1438560750300604182, guid: 36d48319c35409b4e9470bea4d80377d,
+    type: 3}
+  m_PrefabInstance: {fileID: 179853537}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1812400842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812400840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e7b2e2bdc47e84cbb16f582638960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1101725208}
+  hintTriggerDistance: 4
+  hintManager: {fileID: 11400000, guid: b89a4d10901e77048ace88ab06b11994, type: 2}
+  buttonHint: F
+  triggerAfterAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1812400842}
+        m_MethodName: destroyScript
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1819636402
 GameObject:
   m_ObjectHideFlags: 0
