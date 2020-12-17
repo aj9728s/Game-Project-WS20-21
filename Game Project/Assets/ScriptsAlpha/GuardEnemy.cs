@@ -50,6 +50,9 @@ public class GuardEnemy : MonoBehaviour
     private bool spotted = false;
     private bool canSeeTrigger = false;
 
+    bool followPath = false;
+
+    Vector3 targetWaypoint;
 
     private IEnumerator coroutine;
 
@@ -60,11 +63,20 @@ public class GuardEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (followPath)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
+           
+        }
+            
+
         if (CanSeePlayer() || canSeeTrigger)
         {
+            
             spotlight.color = spotlightAfterDetection;
             spotted = true;
             StopCoroutine(coroutine);
+            
             if (shootingEnemy)
             {
                 enableShoot.Invoke();
@@ -105,33 +117,39 @@ public class GuardEnemy : MonoBehaviour
     IEnumerator FollowPath(Vector3[] waypoints)
     {
         transform.position = waypoints[0];
-
         int targetWaypointIndex = 1;
-        Vector3 targetWaypoint = waypoints[targetWaypointIndex];
+        targetWaypoint = waypoints[targetWaypointIndex];
         transform.LookAt(targetWaypoint);
-
+        followPath = true;
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
             if (transform.position == targetWaypoint)
             {
-
-                targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
-                targetWaypoint = waypoints[targetWaypointIndex];
-                yield return new WaitForSeconds(waitTimeBetweenWayPoints);
+                
                 if (!spottingDirectly)
-                    yield return StartCoroutine(TurnToFace(targetWaypoint));
-                else if (!spottingDirectly && targetWaypointIndex != waypoints.Length)
-                    yield return StartCoroutine(TurnToFace(targetWaypoint));
+                {
+                    targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                    targetWaypoint = waypoints[targetWaypointIndex];
+                    yield return new WaitForSeconds(waitTimeBetweenWayPoints);
+                    if (!spottingDirectly)
+                        yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    else if (!spottingDirectly && targetWaypointIndex != waypoints.Length)
+                        yield return StartCoroutine(TurnToFace(targetWaypoint));
+                }
+                else
+                    canSeeTrigger = true;
+
 
             }
             yield return null;
 
-            if (spottingDirectly && targetWaypointIndex == 0)
-                canSeeTrigger = true;
-
             if (spotted)
+            {
+                followPath = false;
                 break;
+            }
+                
 
         }
 
