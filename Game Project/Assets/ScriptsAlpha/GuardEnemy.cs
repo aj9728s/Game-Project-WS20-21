@@ -58,7 +58,7 @@ public class GuardEnemy : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (CanSeePlayer() || canSeeTrigger)
         {
@@ -72,12 +72,6 @@ public class GuardEnemy : MonoBehaviour
 
         }
 
-        /*
-        else if (!CanSeePlayer() && !spotted)
-        {
-            spotlight.color = originalSpotlightColour;
-        }
-        */
 
         if (spotted)
         {
@@ -146,6 +140,7 @@ public class GuardEnemy : MonoBehaviour
 
     IEnumerator TurnToFace(Vector3 lookTarget)
     {
+        lookTarget.y = transform.position.y;
         Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
         float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
 

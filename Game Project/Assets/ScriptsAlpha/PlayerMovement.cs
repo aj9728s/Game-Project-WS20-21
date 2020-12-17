@@ -77,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
      
         Vector3 impulse = new Vector3();
+        
 
         impulse = new Vector3(-Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal"));
 
@@ -96,10 +97,8 @@ public class PlayerMovement : MonoBehaviour
             impulse *= walkSpeed;
         }
         */
-
-        //playerRig.AddForce(impulse, ForceMode.VelocityChange);
-        playerRig.velocity = impulse + new Vector3(0.0f, gravity, 0.0f); ;
-        //this.GetComponent<CharacterController>().Move(impulse * 1/10);
+        impulse.y = playerRig.velocity.y;
+        playerRig.velocity = impulse;
 
         // ----------------------------------------------------------------------------------------------------------------------------------
         // Player FallDmg
