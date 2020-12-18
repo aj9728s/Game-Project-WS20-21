@@ -11464,7 +11464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1514512521
 Light:
   m_ObjectHideFlags: 0
@@ -13848,6 +13848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1438560750300604182, guid: 36d48319c35409b4e9470bea4d80377d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1438560750360139526, guid: 36d48319c35409b4e9470bea4d80377d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -15663,6 +15668,46 @@ PrefabInstance:
       propertyPath: targetOffset.y
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: targetOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInMoveDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInMoveXDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInMoveYDirection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInMoveZDirection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInderSchraege.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410584811640185413, guid: 99b6d145329fc3840b678f2e4a4fc95b,
+        type: 3}
+      propertyPath: OffsetInderSchraege.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1410584811640185414, guid: 99b6d145329fc3840b678f2e4a4fc95b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15932,7 +15977,9 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 6.7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2694409855919590812, guid: 2f009d66b63798249a7801da8acc9f25, type: 3}
+    - {fileID: 2694409855919590787, guid: 2f009d66b63798249a7801da8acc9f25, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2f009d66b63798249a7801da8acc9f25, type: 3}
 --- !u!4 &2950134821107207014 stripped
 Transform:

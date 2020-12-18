@@ -11,12 +11,70 @@ public class TopDownFollowCamera : MonoBehaviour
     // used in Fahrstuhl Script
     public Vector3 targetOffset;
 
+    public float OffsetInMoveXDirection;
+    public float OffsetInMoveZDirection;
+    public Vector2 OffsetInderSchraege;
+
     [SerializeField]
     private float moveSpeed = 2f;
 
+    private Vector3 newOffset;
+
+    private void Start()
+    {
+        newOffset = targetOffset;
+    }
+
+    private void Update()
+    {
+        /*
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            newOffset = targetOffset + new Vector3(-OffsetInderSchraege.x, 0, OffsetInderSchraege.y);
+        }
+
+        else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            newOffset = targetOffset + new Vector3(-OffsetInderSchraege.x, 0, -OffsetInderSchraege.y);
+        }
+
+        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            newOffset = targetOffset + new Vector3(OffsetInderSchraege.x, 0, OffsetInderSchraege.y);
+        }
+
+        else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        {
+            newOffset = targetOffset + new Vector3(OffsetInderSchraege.x, 0, -OffsetInderSchraege.y);
+        }
+
+        else if (Input.GetKey(KeyCode.W))
+        {
+            newOffset = targetOffset + new Vector3(-OffsetInMoveXDirection, 0, 0);
+        }
+
+        else if (Input.GetKey(KeyCode.A))
+        {
+            newOffset = targetOffset + new Vector3(0, 0, -OffsetInMoveZDirection);
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            newOffset = targetOffset + new Vector3(OffsetInMoveXDirection, 0, 0);
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+        {
+            newOffset = targetOffset + new Vector3(0, 0, OffsetInMoveZDirection);
+        }
+        */
+    }
     private void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, player.position + targetOffset, moveSpeed * Time.fixedDeltaTime);
+        
+
+        transform.position = Vector3.Lerp(transform.position, player.position + newOffset, moveSpeed * Time.fixedDeltaTime);
+        
     }
 
 
