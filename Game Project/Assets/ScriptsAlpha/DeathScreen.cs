@@ -28,7 +28,7 @@ public class DeathScreen : MonoBehaviour
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale=1f;
         GameIsPaused=false;
-        SceneManager.LoadScene("TestLightroom1",LoadSceneMode.Single);
+        SceneManager.LoadScene("lvl_1_2",LoadSceneMode.Single);
     }
 
 }
