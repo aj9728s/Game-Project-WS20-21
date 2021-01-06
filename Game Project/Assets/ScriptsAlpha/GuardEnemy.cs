@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Audio;
 
 public class GuardEnemy : MonoBehaviour
 {
+    private audioManager theAM;
+    public GameObject enemymusic;
+    public GameObject defaultmusic;
+
     [SerializeField]
     private float pathSpeed = 5;
 
@@ -145,7 +150,10 @@ public class GuardEnemy : MonoBehaviour
                 }
                 else
                 {
+                    
                     canSeeTrigger = true;
+                    enemymusic.SetActive(true);
+                    defaultmusic.SetActive(false);
                     Debug.Log(targetWaypoint);
                     Debug.Log(transform.position);
                 }
