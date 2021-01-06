@@ -13,20 +13,15 @@ MonoBehaviour:
   m_Name: DialogueLVL1
   m_EditorClassIdentifier: 
   dialogue:
-  - Hallo Pepe
-  - Du weisst zwar nicht wer ich bin, aber ich werde dir helfen
-  - "Ich werde f\xFCr eine Ablenkung sorgen, dann kannst du versuchen zu entkommen. "
-  - Du kannst mit W,A,S,D laufen und mit F mit Sachen interagieren
-  - "Versuche aus dem Gef\xE4ngnis zu entkommen, in dem du den Fahrstuhl am Ende
-    des Levels erreichst"
-  - "In Leveln kannst du Gegenst\xE4nde finden, die dir helfen k\xF6nnen"
-  - Aber sei auf der Hut vor  den anderen Gefangenen und Wachen
-  - "Wenn du bereit bist, klopf einfach an der T\xFCr"
-  - "Du schaffst das schon. Wir h\xF6ren voneinander"
+  - Hallo Gefangener
+  - Du weisst zwar nicht wer ich bin, aber ich werde dir helfen...
+  - "Du kannst mit W,A,S,D laufen und mit F mit Sachen interagieren. Gegenst\xE4nde
+    k\xF6nnen dir helfen, das Ende des Levels zu erreichen. "
+  - 'Versuche zu entkommen, in dem du den Fahrstuhl erreichst. Aber sei auf der Hut
+    vor Gegnern... '
+  - "Wenn du bereit bist, klopf an der T\xFCr und ich werde dir aus der Zelle helfen. "
+  - Halte durch und bis bald... dein geheimer Freund...
   nameChar:
-  - '... unkown... '
-  - '... unkown... '
-  - '... unkown... '
   - '... unkown... '
   - '... unkown... '
   - '... unkown... '
