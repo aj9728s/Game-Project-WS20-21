@@ -27,9 +27,13 @@ public class DoorLvl1 : MonoBehaviour
     private bool explosionBool = false;
 
     void Update()
-    {  
-        if(explosionBool)
-            panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, panel.color.a + 0.01f); 
+    {
+        if (explosionBool)
+        {
+            panel.enabled = true;
+            panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, panel.color.a + 0.01f);
+        }
+            
     }
 
     public void enableHint()
