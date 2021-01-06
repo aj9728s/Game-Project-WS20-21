@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    public GameObject deathmusic;
     [SerializeField]
     private float walkSpeed = 3f;
     [SerializeField]
@@ -106,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerRig.position.y < OutOfTheMapY)
         {
+            deathmusic.SetActive(true);
             lvlManagerPlayerDied.Invoke();
         }
     }
