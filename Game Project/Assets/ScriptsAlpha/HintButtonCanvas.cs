@@ -9,11 +9,11 @@ public class HintButtonCanvas : MonoBehaviour
     [SerializeField]
     private SOHintManager hintManager;
 
-    private Image[] border;
+    private Image border;
 
     void Start()
     {
-        border = GetComponentsInChildren<Image>();
+        border = GetComponentInChildren<Image>();
     }
 
     void Update()
@@ -23,10 +23,7 @@ public class HintButtonCanvas : MonoBehaviour
         {
             this.GetComponentInChildren<TextMeshProUGUI>().text = hintManager.command;
 
-            for (int i = 0; i < border.Length; i++)
-            {
-                border[i].enabled = true;
-            }
+                border.enabled = true;
 
             if (hintManager.timerCommand > 0)
             {
@@ -37,10 +34,9 @@ public class HintButtonCanvas : MonoBehaviour
             {
                 hintManager.command = "";
 
-                for (int i = 0; i < border.Length; i++)
-                {
-                    border[i].enabled = false;
-                }
+ 
+                border.enabled = false;
+                
 
             }
 
@@ -51,10 +47,9 @@ public class HintButtonCanvas : MonoBehaviour
         else
         {
             this.GetComponentInChildren<TextMeshProUGUI>().text = hintManager.commandPrior;
-            for (int i = 0; i < border.Length; i++)
-            {
-                border[i].enabled = true;
-            }
+         
+                border.enabled = true;
+     
 
             if (hintManager.timerCommand > 0)
             {
@@ -65,10 +60,9 @@ public class HintButtonCanvas : MonoBehaviour
             {
                 hintManager.commandPrior = "";
 
-                for (int i = 0; i < border.Length; i++)
-                {
-                    border[i].enabled = false;
-                }
+              
+                border.enabled = false;
+                
 
             }
         }

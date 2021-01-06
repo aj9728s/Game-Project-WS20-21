@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     private Button button;
 
-    private Image[] border;
+    private Image border;
 
     [SerializeField]
     private SODialogue dialogue;
@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         TextMeshProUGUI[] allText = GetComponentsInChildren<TextMeshProUGUI>();
         nameChar = allText[0];
         text = allText[1];
-        border = GetComponentsInChildren<Image>();
+        border = GetComponentInChildren<Image>();
         buttonText = GetComponentInChildren<Text>();
         button = GetComponentInChildren<Button>();
 
@@ -54,33 +54,35 @@ public class DialogueManager : MonoBehaviour
             if (dialogueState == dialogue.dialogue.Length - 1)
                 buttonText.text = "End >>";
             else
-                buttonText.text = "Continue >>";
+                buttonText.text = "Next >>";
 
-
+            /*
             if (dialogueState == dialogue.dialogue.Length - 1 && Input.GetKey(KeyCode.E))
             {
 
                 augmentDialogueState();
             }
-
+            */
         }
 
     }
 
     public void augmentDialogueState()
     {
-       
+        Debug.Log("test");
         if (dialogueEnabled && dialogueState == dialogue.dialogue.Length - 1)
         {
-            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<Rigidbody>().isKinematic = false;
+            player.GetComponent<Rigidbody>().freezeRotation = false;
             resetHint.Invoke();
             dialogueEnabled = false;
          
 
-            for (int i = 0; i < border.Length; i++)
-            {
-                border[i].enabled = false;
-            }
+            
+            border.enabled = false;
+           
+
+
 
             nameChar.text = "";
             text.text = "";
@@ -99,14 +101,15 @@ public class DialogueManager : MonoBehaviour
     {
 
         dialogueEnabled = true;
-        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Rigidbody>().isKinematic = true;
+        player.GetComponent<Rigidbody>().freezeRotation = true;
         dialogueState = 0;
+
+        border.enabled = true;
         
 
-        for (int i = 0; i < border.Length; i++)
-        {
-            border[i].enabled = true;
-        }
+
+
 
     }
 }
