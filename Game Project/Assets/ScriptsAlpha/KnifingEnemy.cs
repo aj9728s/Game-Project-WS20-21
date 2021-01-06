@@ -16,7 +16,7 @@ public class KnifingEnemy : MonoBehaviour
 
     [SerializeField]
     private bool playerDeadBool = true;
-
+    
     void Update()
     {
 

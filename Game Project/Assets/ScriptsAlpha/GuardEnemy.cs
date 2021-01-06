@@ -93,7 +93,12 @@ public class GuardEnemy : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
 
             else if (knifingEnemy)
+            {
                 transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+                Debug.Log("rwrrwarw");
+
+            }
+               
         }
     }
 
@@ -123,8 +128,9 @@ public class GuardEnemy : MonoBehaviour
         followPath = true;
         while (true)
         {
+            Debug.Log(targetWaypoint);
             //transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
-            if (transform.position == targetWaypoint)
+            if (transform.position.z == targetWaypoint.z && transform.position.x == targetWaypoint.x)
             {
                 
                 if (!spottingDirectly)
@@ -138,12 +144,17 @@ public class GuardEnemy : MonoBehaviour
                         yield return StartCoroutine(TurnToFace(targetWaypoint));
                 }
                 else
+                {
                     canSeeTrigger = true;
+                    Debug.Log(targetWaypoint);
+                    Debug.Log(transform.position);
+                }
+                    
 
 
             }
             yield return null;
-
+            
             if (spotted)
             {
                 followPath = false;
