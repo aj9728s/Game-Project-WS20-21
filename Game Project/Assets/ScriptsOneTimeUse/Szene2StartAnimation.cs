@@ -22,9 +22,17 @@ public class Szene2StartAnimation : MonoBehaviour
 
     void Update()
     {
-        if (panel.color.a != 0)
+        if (panel.color.a > 0)
+        {
             panel.color = new Color(panel.color.r, panel.color.g, panel.color.b, panel.color.a - 0.01f);
-        else
+            Debug.Log("wafwfwfafwawffwawffwa");
+        }
+            
+        if (panel.color.a <= 0)
+        {
             panel.enabled = false;
+            
+        }
+           
     }
 }

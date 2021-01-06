@@ -95,7 +95,7 @@ public class Fahrstuhl : MonoBehaviour
         weaponManager.weapons.Clear();
         weaponManager.weaponsName.Clear();
         Scene actualScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame

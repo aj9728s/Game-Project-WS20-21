@@ -16,5 +16,5 @@ MonoBehaviour:
   batteryLevel: 4
   weapons: 
   weaponsName: []
-  selectedWeapon: 1
+  selectedWeapon: 0
   sneaking: 0

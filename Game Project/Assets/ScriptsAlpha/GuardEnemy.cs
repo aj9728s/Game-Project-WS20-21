@@ -100,7 +100,7 @@ public class GuardEnemy : MonoBehaviour
             else if (knifingEnemy)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-                Debug.Log("rwrrwarw");
+                
 
             }
                

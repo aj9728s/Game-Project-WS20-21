@@ -27,7 +27,7 @@ public class TopDownFollowCamera : MonoBehaviour
 
     private void Update()
     {
-        /*
+        
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             newOffset = targetOffset + new Vector3(-OffsetInderSchraege.x, 0, OffsetInderSchraege.y);
@@ -67,7 +67,7 @@ public class TopDownFollowCamera : MonoBehaviour
         {
             newOffset = targetOffset + new Vector3(0, 0, OffsetInMoveZDirection);
         }
-        */
+        
     }
     private void FixedUpdate()
     {
