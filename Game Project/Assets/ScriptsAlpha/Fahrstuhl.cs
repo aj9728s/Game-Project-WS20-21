@@ -42,6 +42,9 @@ public class Fahrstuhl : MonoBehaviour
     [SerializeField]
     private UnityEvent ClosingDoor;
 
+    [SerializeField]
+    private SOLvLManager lvlManager;
+
     private bool doorTriggered = false;
 
     private bool startMoving = false;
@@ -88,8 +91,8 @@ public class Fahrstuhl : MonoBehaviour
     }
 
     IEnumerator changeSzene()
-    {   
-        
+    {
+        lvlManager.absolviertesLVL = 2;
         yield return new WaitForSeconds(timeSzeneSwap);
         weaponManager.selectedWeapon = 0;
         weaponManager.weapons.Clear();

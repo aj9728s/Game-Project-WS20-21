@@ -12,6 +12,9 @@ public class WeaponAttributCanvas : MonoBehaviour
     [SerializeField]
     private Sprite[] images;
 
+    [SerializeField]
+    private Image border;
+
     void Update()
     {
         if (weaponManager.selectedWeapon == 0)
@@ -19,12 +22,14 @@ public class WeaponAttributCanvas : MonoBehaviour
             GetComponentInChildren<TextMeshProUGUI>().enabled = false;
             GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
             GetComponentInChildren<Image>().sprite = null;
+            border.enabled = false;
         }
 
         else if (weaponManager.selectedWeapon == 1)
         {
             GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
             GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+            border.enabled = true;
             if (weaponManager.batteryLevel == 4)
                 GetComponentInChildren<Image>().sprite = images[0];
             if (weaponManager.batteryLevel == 3)
@@ -40,6 +45,7 @@ public class WeaponAttributCanvas : MonoBehaviour
 
         else if (weaponManager.selectedWeapon == 2)
         {
+            border.enabled = true;
             GetComponentInChildren<Image>().color = new Color(255, 255, 255, 255);
             GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             GetComponentInChildren<TextMeshProUGUI>().text = weaponManager.ammoAmount.ToString();
@@ -48,6 +54,7 @@ public class WeaponAttributCanvas : MonoBehaviour
 
         else if (weaponManager.selectedWeapon == 3)
         {
+            border.enabled = true;
             GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
             GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             GetComponentInChildren<TextMeshProUGUI>().text = "1";
@@ -57,6 +64,7 @@ public class WeaponAttributCanvas : MonoBehaviour
 
         else if (weaponManager.selectedWeapon == 4)
         {
+            border.enabled = true;
             GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
             GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             GetComponentInChildren<TextMeshProUGUI>().text = "inf";
@@ -66,6 +74,7 @@ public class WeaponAttributCanvas : MonoBehaviour
 
         else if (weaponManager.selectedWeapon == 5)
         {
+            border.enabled = true;
             GetComponentInChildren<Image>().color = new Color(0, 0, 0, 0);
             GetComponentInChildren<TextMeshProUGUI>().enabled = true;
             GetComponentInChildren<TextMeshProUGUI>().text = "inf";

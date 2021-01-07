@@ -11,6 +11,9 @@ public class GuardEnemy : MonoBehaviour
     public GameObject defaultmusic;
 
     [SerializeField]
+    private UnityEvent triggerStart;
+
+    [SerializeField]
     private float pathSpeed = 5;
 
     [SerializeField]
@@ -50,25 +53,30 @@ public class GuardEnemy : MonoBehaviour
     private bool spottingDirectly = false;
 
     [SerializeField]
+    private bool notCirclePath = false;
+
+    [SerializeField]
     private UnityEvent enableShoot;
 
     private bool spotted = false;
     private bool canSeeTrigger = false;
-
+    private int direction = 1;
     bool followPath = false;
 
     Vector3 targetWaypoint;
 
     private IEnumerator coroutine;
+    private bool lockMovement = true;
+
 
     void Start()
     {
-
+        triggerStart.Invoke();
     }
 
     void FixedUpdate()
     {
-        if (followPath)
+        if (followPath && !lockMovement)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
            
@@ -77,7 +85,8 @@ public class GuardEnemy : MonoBehaviour
 
         if (CanSeePlayer() || canSeeTrigger)
         {
-            
+            enemymusic.SetActive(true);
+            defaultmusic.SetActive(false);
             spotlight.color = spotlightAfterDetection;
             spotted = true;
             StopCoroutine(coroutine);
@@ -131,17 +140,38 @@ public class GuardEnemy : MonoBehaviour
         targetWaypoint = waypoints[targetWaypointIndex];
         transform.LookAt(targetWaypoint);
         followPath = true;
+        lockMovement = false;
+
         while (true)
         {
-            Debug.Log(targetWaypoint);
+            
             //transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
-            if (transform.position.z == targetWaypoint.z && transform.position.x == targetWaypoint.x)
+            if ((transform.position.z >= targetWaypoint.z - 0.01 && transform.position.z <= targetWaypoint.z + 0.01) && (transform.position.x <= targetWaypoint.x + 0.01 && transform.position.x >= targetWaypoint.x - 0.01))
             {
                 
                 if (!spottingDirectly)
                 {
-                    targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                    
+
+                    if (notCirclePath)
+                    {
+                        if (notCirclePath && targetWaypointIndex == waypoints.Length -1 || targetWaypointIndex == 0)
+                        {
+                            direction = direction * -1;
+                        }
+
+                        Debug.Log(targetWaypointIndex);
+                        Debug.Log(waypoints.Length);
+                        targetWaypointIndex = targetWaypointIndex + (1 * direction);
+                    }
+
+                    else
+                    {
+                        targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
+                    }
+                        
                     targetWaypoint = waypoints[targetWaypointIndex];
+                    lockMovement = true;
                     yield return new WaitForSeconds(waitTimeBetweenWayPoints);
                     if (!spottingDirectly)
                         yield return StartCoroutine(TurnToFace(targetWaypoint));
@@ -152,10 +182,8 @@ public class GuardEnemy : MonoBehaviour
                 {
                     
                     canSeeTrigger = true;
-                    enemymusic.SetActive(true);
-                    defaultmusic.SetActive(false);
-                    Debug.Log(targetWaypoint);
-                    Debug.Log(transform.position);
+                    
+                   
                 }
                     
 
@@ -166,6 +194,7 @@ public class GuardEnemy : MonoBehaviour
             if (spotted)
             {
                 followPath = false;
+                lockMovement = true;
                 break;
             }
                 
@@ -187,6 +216,8 @@ public class GuardEnemy : MonoBehaviour
             transform.eulerAngles = Vector3.up * angle;
             yield return null;
         }
+
+        lockMovement = false;
     }
 
     void OnDrawGizmos()
