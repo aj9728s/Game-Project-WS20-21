@@ -7,6 +7,11 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public AudioClip paperSlideSound;
+    [SerializeField]
+    private Transform CameraPosition;
+    [SerializeField]
+    bool paperSound = false; 
     [SerializeField]
     private UnityEvent resetHint;
 
@@ -70,6 +75,10 @@ public class DialogueManager : MonoBehaviour
     public void augmentDialogueState()
     {
         Debug.Log("test");
+        if (paperSound)
+        {
+            AudioSource.PlayClipAtPoint(paperSlideSound, CameraPosition.position, 1f);
+        }
         if (dialogueEnabled && dialogueState == dialogue.dialogue.Length - 1)
         {
             player.GetComponent<Rigidbody>().isKinematic = false;

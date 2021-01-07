@@ -5,6 +5,10 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField]
+    private Transform CameraPosition;
+    [SerializeField]
+    private AudioClip doorSound;   
+    [SerializeField]
     private bool openRight = false;
 
     [SerializeField]
@@ -46,6 +50,7 @@ public class Door : MonoBehaviour
     
     public void openDoor()
     {
+        AudioSource.PlayClipAtPoint(doorSound, CameraPosition.position, 1);
         StartCoroutine(RotateDoor());
         StartCoroutine(MoveDoor());
        

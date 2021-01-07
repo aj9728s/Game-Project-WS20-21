@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Fahrstuhl : MonoBehaviour
 {
+    public GameObject elevatorDoorSound;
+    public GameObject elevatorMoveSound;
+
     [SerializeField]
     private float delayClosingDoor;
 
@@ -65,6 +68,7 @@ public class Fahrstuhl : MonoBehaviour
 
         if (other.gameObject.tag == "Player")
         {
+            elevatorDoorSound.SetActive(true);
             StartCoroutine(closeDoor());
             doorTriggered = true;
         }
@@ -114,7 +118,7 @@ public class Fahrstuhl : MonoBehaviour
     {
         if (startMoving)
         {
-
+            elevatorMoveSound.SetActive(true);
             if (zDirection_p)
                 transform.position += transform.forward * Time.deltaTime * speed;
             else if (xDirection_p)
