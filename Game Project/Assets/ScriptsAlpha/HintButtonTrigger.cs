@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class HintButtonTrigger : MonoBehaviour
 {
-    public GameObject buttonsound;
+
     [SerializeField]
     private GameObject player;
 
@@ -35,7 +35,7 @@ public class HintButtonTrigger : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                buttonsound.SetActive(true);
+                
                 triggerAfterAction.Invoke();
                 fPressed = true;
             }

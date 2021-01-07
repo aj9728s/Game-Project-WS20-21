@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialogueFlashlight
   m_EditorClassIdentifier: 
   dialogue:
-  - Das ist die Taschenlampe. Du kannst Sie mit Linksklick aktivieren/deaktivieren.
-    Aber auchte auf die Batterie!
+  - ieren. Aber auchte auf die Batterie!Sie mit Linksklick aktivieren/deaktivieren.
+    Aber achte auf die Batterie!
   nameChar:
   - Hinweis
