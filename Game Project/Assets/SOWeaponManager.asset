@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoAmount: 0
   batteryLevel: 4
-  weapons: 
-  weaponsName: []
-  selectedWeapon: 0
+  weapons: 01000000
+  weaponsName:
+  - Flashlight
+  selectedWeapon: 1
   sneaking: 0

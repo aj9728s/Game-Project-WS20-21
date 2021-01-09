@@ -15,19 +15,31 @@ public class TopDownFollowCamera : MonoBehaviour
     public float OffsetInMoveZDirection;
     public Vector2 OffsetInderSchraege;
 
+    
+    public float moveSpeed = 2f;
+
     [SerializeField]
-    private float moveSpeed = 2f;
+    private float camSpeedAtBeginning = 12;
+
+    private float tmpMoveSpeed;
 
     private Vector3 newOffset;
 
     private void Start()
     {
+        tmpMoveSpeed = moveSpeed;
+        moveSpeed = camSpeedAtBeginning;
         newOffset = targetOffset;
     }
 
+    
     private void Update()
     {
-        
+        if(transform.position.y <= player.position.y + newOffset.y + 0.5)
+        {
+            moveSpeed = tmpMoveSpeed;
+        }
+
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             newOffset = targetOffset + new Vector3(-OffsetInderSchraege.x, 0, OffsetInderSchraege.y);
@@ -67,8 +79,19 @@ public class TopDownFollowCamera : MonoBehaviour
         {
             newOffset = targetOffset + new Vector3(0, 0, OffsetInMoveZDirection);
         }
+
+        else
+        {
+
+        }
+            //newOffset = targetOffset;
         
+    
+
+
     }
+
+    
     private void FixedUpdate()
     {
         

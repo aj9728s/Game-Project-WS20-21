@@ -6,9 +6,21 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    public AudioMixer audioMixerBackground;
+
+    public AudioMixer audioMixerSFX;
+
+    public Slider backgroundSlider;
+
+    public Slider sfxSlider;
+
+    public Toggle toggleFullScreen;
 
     public Dropdown resolutionDropdown;
+
+    public SOOptionSettings optionSettings;
+
+    private bool fullScreen = true;
 
     Resolution[] resolutions;
 
@@ -20,33 +32,47 @@ public class SettingsMenu : MonoBehaviour
 
         List<string> options = new List<string>();
 
-        int currentResolutionIndex=0;
-
         for (int i = 0; i < resolutions.Length ; i++)
         {
             string option = resolutions[i].width + " x "+ resolutions[i].height;
             options.Add(option);
 
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if(optionSettings.resolutionIndex == 0 && resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
-                currentResolutionIndex = i;
+                optionSettings.resolutionIndex = i;
             }
         }
 
-       resolutionDropdown.AddOptions(options);
-       resolutionDropdown.value = currentResolutionIndex;
-       resolutionDropdown.RefreshShownValue();
-    }
+       toggleFullScreen.isOn = optionSettings.fullscreen;
 
-    public void SetResolution(int resoluitonIndex )
+       resolutionDropdown.AddOptions(options);
+       resolutionDropdown.value = optionSettings.resolutionIndex;
+       resolutionDropdown.RefreshShownValue();
+ 
+       audioMixerBackground.SetFloat("volumeBackground", Mathf.Log10(optionSettings.volumeBackground) * 20);
+       audioMixerSFX.SetFloat("volumeSFX", Mathf.Log10(optionSettings.volumeSFX) * 20);
+       backgroundSlider.value = optionSettings.volumeBackground;
+       sfxSlider.value = optionSettings.volumeSFX;
+        
+
+    }   
+
+    public void SetResolution(int resoluitonIndex)
     {
         Resolution resolution = resolutions[resoluitonIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        optionSettings.resolutionIndex = resoluitonIndex;
+        Screen.SetResolution(resolution.width, resolution.height, optionSettings.fullscreen);
     }
 
-    public void SetVolume(float volume){
-        Debug.Log(volume);
-        audioMixer.SetFloat("volume",volume);
+    public void SetVolumeBackground(float volume){
+        optionSettings.volumeBackground = volume;
+        audioMixerBackground.SetFloat("volumeBackground", Mathf.Log10(volume) *20);
+    }
+
+    public void SetVolumeSFX(float volume)
+    {
+        optionSettings.volumeSFX = volume;
+        audioMixerSFX.SetFloat("volumeSFX", Mathf.Log10(volume) * 20);
     }
 
     public void SetQuality(int qualityIndex){
@@ -54,6 +80,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void SetFullScreen(bool isFullScreen){
-        Screen.fullScreen = isFullScreen;
+        optionSettings.fullscreen = isFullScreen;
+        
     }
 }

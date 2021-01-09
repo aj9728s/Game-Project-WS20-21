@@ -35,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
                 hintManager.timerCommand = 0.1f;
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && !fPressed)
             {
                 fPressed = true;
                 dialogueTrigger.Invoke();

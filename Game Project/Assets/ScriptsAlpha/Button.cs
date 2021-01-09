@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Button : MonoBehaviour
 {
-    public GameObject buttonsound;
+    public AudioSource buttonsound;
 
     [SerializeField]
     private UnityEvent method1;
@@ -52,7 +52,7 @@ public class Button : MonoBehaviour
           
             if (Input.GetKeyDown(KeyCode.F))
             {
-                buttonsound.SetActive(true);
+                buttonsound.Play();
 
                 if (oneTimeUse)
                 {

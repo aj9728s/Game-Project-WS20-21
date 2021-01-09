@@ -7,11 +7,11 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public AudioClip paperSlideSound;
-    [SerializeField]
-    private Transform CameraPosition;
+    public AudioSource paperSlideSound;
+
     [SerializeField]
     bool paperSound = false; 
+
     [SerializeField]
     private UnityEvent resetHint;
 
@@ -53,6 +53,8 @@ public class DialogueManager : MonoBehaviour
 
         if (dialogueEnabled)
         {
+           
+
             nameChar.text = dialogue.nameChar[dialogueState];
             text.text = dialogue.dialogue[dialogueState];
 
@@ -77,12 +79,14 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("test");
         if (paperSound)
         {
-            AudioSource.PlayClipAtPoint(paperSlideSound, CameraPosition.position, 1f);
+            paperSlideSound.Play();
+            
         }
         if (dialogueEnabled && dialogueState == dialogue.dialogue.Length - 1)
         {
             player.GetComponent<Rigidbody>().isKinematic = false;
             player.GetComponent<Rigidbody>().freezeRotation = false;
+          
             resetHint.Invoke();
             dialogueEnabled = false;
          
@@ -108,10 +112,15 @@ public class DialogueManager : MonoBehaviour
 
     public void activateDialogue()
     {
+        if (paperSound)
+        {
+            paperSlideSound.Play();
+        }
 
         dialogueEnabled = true;
         player.GetComponent<Rigidbody>().isKinematic = true;
         player.GetComponent<Rigidbody>().freezeRotation = true;
+        
         dialogueState = 0;
 
         border.enabled = true;

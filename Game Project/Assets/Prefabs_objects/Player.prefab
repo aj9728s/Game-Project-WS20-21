@@ -486,9 +486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88891fcebd3ffbb4ca2dbb6a690e2742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  deathmusic: {fileID: 0}
+  walkSpeed: 4.5
   sneakSpeed: 1.5
-  lightRange: []
   OutOfTheMapY: -5
   lvlManagerPlayerDied:
     m_PersistentCalls:

@@ -12,6 +12,7 @@ public class LevelManager1 : MonoBehaviour
 
     [SerializeField]
     private UnityEvent deathScreenTrigger;
+
     public void PlayerDied()
     {
         deathScreenTrigger.Invoke();

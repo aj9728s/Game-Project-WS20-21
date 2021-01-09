@@ -6,12 +6,11 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject deathmusic;
+
     [SerializeField]
-    private float walkSpeed = 3f;
+    private float walkSpeed = 4.5f;
     [SerializeField]
     private float sneakSpeed = 1.5f;
-    [SerializeField]
-    private float[] lightRange;
     [SerializeField]
     private double OutOfTheMapY = -5f;
     [SerializeField]
@@ -23,11 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private int actualLightRange;
     private float timestamp = 0f;
 
-    private bool canMove = true;
-
-    [SerializeField]
-    private float gravity = -2;
-
     [SerializeField]
     public Camera cam;
 
@@ -37,21 +31,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRig = GetComponent<Rigidbody>();
-        playerLight = GetComponent<Light>();
-        actualLightRange = 0;
-        lightRangeNumber = lightRange.Length;
-
     }
-
-
 
     void FixedUpdate()
     {
-
-        if (!canMove)
-        {
-            return;
-        }
 
         // ---------------------------------------------------------------------------------
         // Rotation of player with mouse
@@ -65,22 +48,15 @@ public class PlayerMovement : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.AngleAxis(-angle, Vector3.up);
-
-        if (!canMove)
-        {
-            return;
-        }
+        
 
         // ----------------------------------------------------------------------------------------------------------------------------------
         // Player Movement 
         // ----------------------------------------------------------------------------------------------------------------------------------
 
-     
         Vector3 impulse = new Vector3();
-        
-
+  
         impulse = new Vector3(-Input.GetAxisRaw("Vertical"), 0f, Input.GetAxisRaw("Horizontal"));
-
 
         impulse.Normalize();
 
@@ -96,7 +72,9 @@ public class PlayerMovement : MonoBehaviour
         {
             impulse *= walkSpeed;
         }
+
         */
+
         impulse.y = playerRig.velocity.y;
         playerRig.velocity = impulse;
 
@@ -109,16 +87,6 @@ public class PlayerMovement : MonoBehaviour
             deathmusic.SetActive(true);
             lvlManagerPlayerDied.Invoke();
         }
-    }
-
-    public void setCanMoveTrue()
-    {
-        canMove = true;
-    }
-
-    public void setCanMoveFalse()
-    {
-        canMove = false;
     }
 
 }

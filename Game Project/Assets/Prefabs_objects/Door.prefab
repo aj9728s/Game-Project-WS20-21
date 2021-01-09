@@ -215,8 +215,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6522967849786913760}
   - {fileID: 6522967849036752695}
+  - {fileID: 6522967849786913760}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 6522967849036752681}
   - component: {fileID: 6522967849036752680}
   m_Layer: 0
-  m_Name: BottomCube
+  m_Name: TopCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ Transform:
   - {fileID: 6522967848454433679}
   - {fileID: 6884828252630299049}
   m_Father: {fileID: 6522967847908656892}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6522967849036752683
 MeshFilter:
@@ -422,6 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a063644c1526774e9c6410815bee425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraPosition: {fileID: 0}
+  doorSound: {fileID: 0}
   openRight: 1
   openLeft: 0
   rotateSpeed: 1
@@ -441,7 +443,7 @@ GameObject:
   - component: {fileID: 6522967849786913762}
   - component: {fileID: 6522967849786913761}
   m_Layer: 0
-  m_Name: TopCube
+  m_Name: BottomCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -454,14 +456,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6522967849786913775}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.4, z: 0.1}
   m_Children:
   - {fileID: 3365357226062424979}
   - {fileID: 7908761011141538023}
   m_Father: {fileID: 6522967847908656892}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6522967849786913764
 MeshFilter:
@@ -535,6 +537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a063644c1526774e9c6410815bee425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraPosition: {fileID: 0}
+  doorSound: {fileID: 0}
   openRight: 1
   openLeft: 0
   rotateSpeed: 1

@@ -99,7 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   targetOffset: {x: 0, y: 11, z: 0}
-  moveSpeed: 2
+  OffsetInMoveXDirection: 0
+  OffsetInMoveZDirection: 0
+  OffsetInderSchraege: {x: 0, y: 0}
+  moveSpeed: 12
 --- !u!114 &1410584811640185409
 MonoBehaviour:
   m_ObjectHideFlags: 0

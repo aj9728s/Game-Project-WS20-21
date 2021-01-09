@@ -7,16 +7,13 @@ using UnityEngine.UI;
 public class DoorLvl1 : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip knock;
+    private AudioSource knock;
 
     [SerializeField]
-    private AudioClip explosion;
+    private AudioSource explosion;
 
     [SerializeField]
-    private AudioClip tinnitus;
-
-    [SerializeField]
-    private Transform CameraPosition;
+    private AudioSource tinnitus;
 
     [SerializeField]
     private float timeSzeneSwap;
@@ -43,7 +40,7 @@ public class DoorLvl1 : MonoBehaviour
 
     public void gotKnocked()
     {
-        AudioSource.PlayClipAtPoint(knock, CameraPosition.position, 2f);
+        knock.Play();
         
         StartCoroutine(changeSzene());
     }
@@ -51,9 +48,9 @@ public class DoorLvl1 : MonoBehaviour
     IEnumerator changeSzene()
     {
         yield return new WaitForSeconds(timeSzeneSwap);
-        AudioSource.PlayClipAtPoint(explosion, CameraPosition.position, 4f);
+        explosion.Play();
         yield return new WaitForSeconds(1);
-        AudioSource.PlayClipAtPoint(tinnitus, CameraPosition.position, 4f);
+        tinnitus.Play();
         explosionBool = true;
 
 

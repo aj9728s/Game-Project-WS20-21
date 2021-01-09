@@ -5,29 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class DeathScreen : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-
-   public static bool PlayerIsDead = false;
-
    public GameObject deathScreenUI;
-
-    // Update is called once per frame
-    
+ 
     public void QuitGame()
     {
         Application.Quit();
     }
    public void Death(){
+
         deathScreenUI.SetActive(true);
-        Time.timeScale=0f;
-        GameIsPaused=true;
+        Time.timeScale = 0f;
+
 
     }
     public void Restart(){
+
         deathScreenUI.SetActive(false);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale=1f;
-        GameIsPaused=false;
+        Time.timeScale = 1f;
         SceneManager.LoadScene("lvl_1_2",LoadSceneMode.Single);
     }
 
