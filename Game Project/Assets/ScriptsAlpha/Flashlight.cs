@@ -5,10 +5,7 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip click;
-
-    [SerializeField]
-    private Transform CameraPosition;
+    private AudioSource click;
 
     [SerializeField]
     private int weaponNR;
@@ -74,7 +71,7 @@ public class Flashlight : MonoBehaviour
 
         if (batteryLvl != 0 && Input.GetButtonDown("Fire1") && sWeapon == weaponNR)
         {
-            AudioSource.PlayClipAtPoint(click, CameraPosition.position, 2f);
+            click.Play();
             ChangeState();
         }
 

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject deathmusic;
+    public AudioSource deathmusicLaserFallDmg;
 
     [SerializeField]
     private float walkSpeed = 4.5f;
@@ -16,11 +16,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private UnityEvent lvlManagerPlayerDied;
 
+    [SerializeField]
+    private UnityEvent deadByFallDmg;
+
+    [SerializeField]
+    private ParticleSystem LightningYellow;
+
+    [SerializeField]
+    private ParticleSystem LightningRed;
+
     private Rigidbody playerRig;
     private Light playerLight;
     private int lightRangeNumber;
     private int actualLightRange;
     private float timestamp = 0f;
+    private bool isOutOfTheMap = false;
 
     [SerializeField]
     public Camera cam;
@@ -82,17 +92,36 @@ public class PlayerMovement : MonoBehaviour
         // Player FallDmg
         // ----------------------------------------------------------------------------------------------------------------------------------
 
-        if (playerRig.position.y < OutOfTheMapY)
+        if (playerRig.position.y < OutOfTheMapY && !isOutOfTheMap)
         {
-            deathmusic.SetActive(true);
-            lvlManagerPlayerDied.Invoke();
+            isOutOfTheMap = true;
+            deadByFallDmg.Invoke();
         }
     }
 
     public void ActivateParticleEffect()
     {
-        GetComponentInChildren<ParticleSystem>().Play();
+        LightningYellow.Play();
         GetComponent<Rigidbody>().isKinematic = true;
+
+    }
+
+    public void DeadByLaserFallDmg()
+    {
+       
+        StartCoroutine(DeadByLaserFallDmg2());
+
+
+    }
+
+    IEnumerator DeadByLaserFallDmg2()
+    {
+        LightningRed.Play();
+        deathmusicLaserFallDmg.Play();
+        yield return new WaitForSeconds(1f);
+        lvlManagerPlayerDied.Invoke();
+        
+
     }
 
 }
