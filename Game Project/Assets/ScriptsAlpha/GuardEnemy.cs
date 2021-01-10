@@ -6,19 +6,28 @@ using UnityEngine.Audio;
 
 public class GuardEnemy : MonoBehaviour
 {
-    private audioManager theAM;
-    public GameObject enemymusic;
-    public GameObject defaultmusic;
+    
+    public AudioSource enemymusic;
+    public AudioSource defaultmusic;
+    public AudioSource moving;
+    public AudioSource scanning;
+    public AudioSource chasing;
 
     [SerializeField]
     private UnityEvent triggerStart;
 
     [SerializeField]
+    private float lookAtSpeed = 2;
+
+    [SerializeField]
     private float pathSpeed = 5;
 
     [SerializeField]
-    private float speed = 5;
+    private float waitTimeAfterDetection = .3f;
 
+    [SerializeField]
+    private float waitTimeAfterRadiusDetection = 2f;
+   
     [SerializeField]
     private float waitTimeBetweenWayPoints = .3f;
     [SerializeField]
@@ -30,6 +39,9 @@ public class GuardEnemy : MonoBehaviour
     private Color spotlightAfterDetection;
 
     private Color originalSpotlightColour;
+
+    [SerializeField]
+    private float detectionRadius;
 
     [SerializeField]
     private float viewDistance;
@@ -58,16 +70,27 @@ public class GuardEnemy : MonoBehaviour
     [SerializeField]
     private UnityEvent enableShoot;
 
+    [SerializeField]
+    private UnityEvent enableKnifing;
+
     private bool spotted = false;
     private bool canSeeTrigger = false;
+
     private int direction = 1;
+
     bool followPath = false;
 
     Vector3 targetWaypoint;
 
     private IEnumerator coroutine;
+
     private bool lockMovement = true;
 
+    private bool blockCanSeePlayerMethod = false;
+
+    private bool detected = false;
+
+    private bool detectedByRadius = false;
 
     void Start()
     {
@@ -76,6 +99,14 @@ public class GuardEnemy : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (detected)
+        {
+            var rotation = Quaternion.LookRotation(player.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * lookAtSpeed);
+        }
+           
+            
+
         if (followPath && !lockMovement)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, pathSpeed * Time.deltaTime);
@@ -85,40 +116,30 @@ public class GuardEnemy : MonoBehaviour
 
         if (CanSeePlayer() || canSeeTrigger)
         {
-            enemymusic.SetActive(true);
-            defaultmusic.SetActive(false);
+            moving.Stop();
+            enemymusic.Play();
+            defaultmusic.Stop();
+            scanning.Play();
+
             spotlight.color = spotlightAfterDetection;
             spotted = true;
             StopCoroutine(coroutine);
-            
-            if (shootingEnemy)
-            {
-                enableShoot.Invoke();
-            }
-
-        }
-
-
-        if (spotted)
-        {
-            Vector3 targetWaypoint = player.position;
-            transform.LookAt(targetWaypoint);
-            if (shootingEnemy && Vector3.Distance(transform.position, player.position) > 5)
-                transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-
-            else if (knifingEnemy)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-                
-
-            }
-               
+            detected = true;
+            StartCoroutine(Chasing());
         }
     }
 
     bool CanSeePlayer()
     {
-        if (Vector3.Distance(transform.position, player.position) < viewDistance)
+        if (!blockCanSeePlayerMethod && Vector3.Distance(transform.position, player.position) < detectionRadius)
+        {
+            detectedByRadius = true;
+            blockCanSeePlayerMethod = true;
+            return true;
+
+        }
+
+        if (!blockCanSeePlayerMethod && Vector3.Distance(transform.position, player.position) < viewDistance)
         {
             Vector3 dirToPlayer = (player.position - transform.position).normalized;
             float angleBetweenGuardAndPlayer = Vector3.Angle(transform.forward, dirToPlayer);
@@ -126,14 +147,41 @@ public class GuardEnemy : MonoBehaviour
             {
                 if (!Physics.Linecast(transform.position, player.position, viewMask))
                 {
+                    blockCanSeePlayerMethod = true;
                     return true;
+                    
                 }
             }
         }
+
         return false;
     }
 
-    IEnumerator FollowPath(Vector3[] waypoints)
+    IEnumerator Chasing()
+    {
+        if(detectedByRadius)
+            yield return new WaitForSeconds(waitTimeAfterRadiusDetection);
+
+        else
+            yield return new WaitForSeconds(waitTimeAfterDetection);
+
+        detected = false;
+
+        if (shootingEnemy)
+        {
+            enableShoot.Invoke();
+        }
+
+        else if (knifingEnemy)
+        {
+            enableKnifing.Invoke();
+        }
+
+        chasing.Play();
+
+    }
+
+        IEnumerator FollowPath(Vector3[] waypoints)
     {
         transform.position = waypoints[0];
         int targetWaypointIndex = 1;
@@ -151,17 +199,13 @@ public class GuardEnemy : MonoBehaviour
                 
                 if (!spottingDirectly)
                 {
-                    
-
                     if (notCirclePath)
                     {
-                        if (notCirclePath && targetWaypointIndex == waypoints.Length -1 || targetWaypointIndex == 0)
+                        if (targetWaypointIndex == waypoints.Length -1 || targetWaypointIndex == 0)
                         {
                             direction = direction * -1;
                         }
 
-                        Debug.Log(targetWaypointIndex);
-                        Debug.Log(waypoints.Length);
                         targetWaypointIndex = targetWaypointIndex + (1 * direction);
                     }
 
@@ -172,23 +216,19 @@ public class GuardEnemy : MonoBehaviour
                         
                     targetWaypoint = waypoints[targetWaypointIndex];
                     lockMovement = true;
+
+                    moving.Pause();
                     yield return new WaitForSeconds(waitTimeBetweenWayPoints);
-                    if (!spottingDirectly)
-                        yield return StartCoroutine(TurnToFace(targetWaypoint));
-                    else if (!spottingDirectly && targetWaypointIndex != waypoints.Length)
-                        yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    
+                    yield return StartCoroutine(TurnToFace(targetWaypoint));
+                    moving.UnPause();
                 }
+
                 else
-                {
-                    
                     canSeeTrigger = true;
-                    
-                   
-                }
-                    
-
-
+              
             }
+
             yield return null;
             
             if (spotted)
@@ -239,6 +279,7 @@ public class GuardEnemy : MonoBehaviour
 
     public void TriggerEnemie()
     {
+        moving.Play();
         coroutine = FollowPath(new Vector3[pathHolder.childCount]);
         player = GameObject.FindGameObjectWithTag("Player").transform;
         viewAngle = spotlight.spotAngle;

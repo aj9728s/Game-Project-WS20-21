@@ -26,7 +26,7 @@ public class Szene2StartAnimation : MonoBehaviour
             
         if (panel.color.a <= 0)
         {
-            panel.enabled = false;
+            //panel.enabled = false;
             tinnitus.volume = tinnitus.volume - 0.01f;
 
         }

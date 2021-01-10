@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class KnifingEnemy : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip taser;
+    private AudioSource taser;
 
     [SerializeField]
     private Transform player;
@@ -17,19 +17,48 @@ public class KnifingEnemy : MonoBehaviour
     [SerializeField]
     private UnityEvent playerDead;
 
-    [SerializeField]
-    private bool playerDeadBool = true;
+    private bool playerDeadBool = false;
 
     [SerializeField]
-    private Transform CameraPosition;
+    private float speed = 5;
 
-    void Update()
+    [SerializeField]
+    private UnityEvent lightningPlayer;
+
+    [SerializeField]
+    private float timeUntilDeathScreen = 1;
+
+    private bool startKnifing = false;
+
+    void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, player.position) < killingDistance && playerDeadBool)
+        if(startKnifing && !playerDeadBool)
         {
-            AudioSource.PlayClipAtPoint(taser, CameraPosition.position, 4f);
-            playerDead.Invoke();
-            playerDeadBool = false;
+            Vector3 targetWaypoint = player.position;
+            transform.LookAt(targetWaypoint);
+            transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+            
+            if (Vector3.Distance(transform.position, player.position) < killingDistance)
+            {
+                Debug.Log(Vector3.Distance(transform.position, player.position));
+                
+                taser.Play();
+                lightningPlayer.Invoke();
+                playerDeadBool = true;
+                StartCoroutine(DeathMenu());
+            }
         }
+       
+    }
+
+    IEnumerator DeathMenu()
+    {
+        yield return new WaitForSeconds(timeUntilDeathScreen);
+        playerDead.Invoke();
+    }
+
+    public void enableKnifing()
+    {
+        startKnifing = true;
     }
 }

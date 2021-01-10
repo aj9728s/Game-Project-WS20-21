@@ -89,4 +89,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ActivateParticleEffect()
+    {
+        GetComponentInChildren<ParticleSystem>().Play();
+        GetComponent<Rigidbody>().isKinematic = true;
+    }
+
 }
