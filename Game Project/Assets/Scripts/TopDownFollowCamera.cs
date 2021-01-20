@@ -35,6 +35,9 @@ public class TopDownFollowCamera : MonoBehaviour
     
     private void Update()
     {
+        newOffset = targetOffset;
+
+        /*
         if(transform.position.y <= player.position.y + newOffset.y + 0.5)
         {
             moveSpeed = tmpMoveSpeed;
@@ -85,8 +88,8 @@ public class TopDownFollowCamera : MonoBehaviour
 
         }
             //newOffset = targetOffset;
-        
-    
+        */
+
 
 
     }

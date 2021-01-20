@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Fahrstuhl : MonoBehaviour
 {
-    public GameObject elevatorDoorSound;
-    public GameObject elevatorMoveSound;
+    public AudioSource elevatorDoorSound;
+    public AudioSource elevatorMoveSound;
 
     [SerializeField]
     private float delayClosingDoor;
@@ -63,14 +63,13 @@ public class Fahrstuhl : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (doorTriggered)
-            return;
-
-        if (other.gameObject.tag == "Player")
+ 
+        if (other.gameObject.tag == "Player" && !doorTriggered)
         {
-            elevatorDoorSound.SetActive(true);
-            StartCoroutine(closeDoor());
             doorTriggered = true;
+            elevatorDoorSound.Play();
+            StartCoroutine(closeDoor());
+            
         }
            
     }
@@ -89,6 +88,7 @@ public class Fahrstuhl : MonoBehaviour
 
        
         startMoving = true;
+        elevatorMoveSound.Play();
 
         StartCoroutine(changeSzene());
 
@@ -105,20 +105,10 @@ public class Fahrstuhl : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (startMoving)
-        {
-            
-
-        }
-    }
     void LateUpdate()
     {
         if (startMoving)
         {
-            elevatorMoveSound.SetActive(true);
             if (zDirection_p)
                 transform.position += transform.forward * Time.deltaTime * speed;
             else if (xDirection_p)

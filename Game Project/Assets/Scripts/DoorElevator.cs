@@ -11,7 +11,7 @@ public class DoorElevator : MonoBehaviour
     private bool closeLeft = true;
 
     [SerializeField]
-    private float moveSpeed = 0.000005f;
+    private float moveSpeed = 1f;
 
     private Vector3 destPos;
     private Vector3 closeDestPos;
@@ -61,7 +61,7 @@ public class DoorElevator : MonoBehaviour
         {
             while (transform.localPosition.z < destPos.z)
             {
-                transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.time);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
         }
@@ -69,7 +69,7 @@ public class DoorElevator : MonoBehaviour
         {
             while (transform.localPosition.z > destPos.z)
             {
-                transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.time);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, destPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
         }
@@ -87,7 +87,7 @@ public class DoorElevator : MonoBehaviour
         {
             while (transform.position.z > closeDestPos.z)
             {
-                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.time);
+                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
         }
@@ -95,7 +95,7 @@ public class DoorElevator : MonoBehaviour
         {
             while (transform.position.x < closeDestPos.x)
             {
-                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.time);
+                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
         }
