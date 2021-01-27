@@ -11,6 +11,7 @@ public class SOWeaponManager : ScriptableObject
     public List<string> weaponsName;
     public int selectedWeapon;
     public bool sneaking = false;
+    public int hackingCharges;
 
     void Awake()
     {

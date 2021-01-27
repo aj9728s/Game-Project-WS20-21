@@ -9,6 +9,7 @@ TagManager:
   - DestroyableWall
   - InvWall
   - PressWall
+  - SecurityCamera
   layers:
   - Default
   - TransparentFX

@@ -114,6 +114,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void toggleMovement()
+    {
+        GetComponent<Rigidbody>().isKinematic = !GetComponent<Rigidbody>().isKinematic;
+    }
+
     IEnumerator DeadByLaserFallDmg2()
     {
         LightningRed.Play();

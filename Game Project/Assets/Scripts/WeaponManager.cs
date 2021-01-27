@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour
     public GameObject WeaponPickUpPrefab;
 
     [SerializeField]
-    public GameObject player;
+    public Transform player;
 
     private int weaponNumber;
 
@@ -22,18 +22,23 @@ public class WeaponManager : MonoBehaviour
     {
         weaponNumber = weaponManager.weapons.Count;
 
-        if (weaponNumber != 0 && Input.GetKeyDown(KeyCode.Q))
+        if (weaponNumber > 1 && Input.GetKeyDown(KeyCode.Q))
         {
             resetValues();
+            counter = ((counter + 1) % weaponNumber);
+          
             weaponManager.selectedWeapon = weaponManager.weapons[counter];
-            counter = (counter + 1) % weaponNumber;
+            
            
         }
 
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (weaponManager.weapons.Count != 0)
-                dropWeapon();
+            {
+                //dropWeapon();
+            }
+          
         }
     }
 
