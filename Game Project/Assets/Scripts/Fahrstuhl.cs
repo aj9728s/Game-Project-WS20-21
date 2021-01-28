@@ -13,10 +13,10 @@ public class Fahrstuhl : MonoBehaviour
     private float delayClosingDoor;
 
     [SerializeField]
-    private float delayMovingElevator;
-
+    private float delayCameraZoom;
+    
     [SerializeField]
-    private float delayMovingCamera;
+    private float delayMovingElevator;
 
     [SerializeField]
     private Camera camera;
@@ -48,6 +48,9 @@ public class Fahrstuhl : MonoBehaviour
     [SerializeField]
     private SOLvLManager lvlManager;
 
+    [SerializeField]
+    private bool openDoors = false;
+
     private bool doorTriggered = false;
 
     private bool startMoving = false;
@@ -58,20 +61,36 @@ public class Fahrstuhl : MonoBehaviour
     private SOWeaponManager weaponManager;
     void Start()
     {
-        
+        if (openDoors)
+        {
+            offset = player.transform.position - transform.position;
+            camera.GetComponent<TopDownFollowCamera>().targetOffset.y += 8;
+            elevatorMoveSound.Play();
+            startMoving = true;
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
- 
-        if (other.gameObject.tag == "Player" && !doorTriggered)
+
+        if (other.gameObject.tag == "Player" && !doorTriggered && !openDoors)
         {
+            Debug.Log("test");
             doorTriggered = true;
             elevatorDoorSound.Play();
             StartCoroutine(closeDoor());
             
         }
-           
+      
+        if (other.gameObject.tag == "ElevatorBlocker" && !doorTriggered)
+        {
+            elevatorMoveSound.Stop();
+            doorTriggered = true;
+            startMoving = false;
+            elevatorDoorSound.Play();
+            StartCoroutine(openDoor());
+
+        }
     }
 
     IEnumerator closeDoor()
@@ -94,6 +113,14 @@ public class Fahrstuhl : MonoBehaviour
 
     }
 
+    IEnumerator openDoor()
+    {
+        yield return new WaitForSeconds(delayClosingDoor);
+        ClosingDoor.Invoke();
+        yield return new WaitForSeconds(delayCameraZoom);
+        camera.GetComponent<TopDownFollowCamera>().targetOffset.y -= 8;
+    }
+
     IEnumerator changeSzene()
     {
         lvlManager.absolviertesLVL = 2;
@@ -105,7 +132,7 @@ public class Fahrstuhl : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (startMoving)
         {
