@@ -25,6 +25,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private ParticleSystem LightningRed;
 
+    [SerializeField]
+    private float timeUntilDeathScreen;
+
+    [SerializeField]
+    private UnityEvent playerDead;
+
+    [SerializeField]
+    private AudioSource taser;
+
+
     private Rigidbody playerRig;
     private Light playerLight;
     private int lightRangeNumber;
@@ -99,11 +109,19 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ActivateParticleEffect()
+    public void DeadByYellowLaserDmg()
     {
+        taser.Play();
         LightningYellow.Play();
         GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(DeathMenu());
 
+    }
+
+    IEnumerator DeathMenu()
+    {
+        yield return new WaitForSeconds(timeUntilDeathScreen);
+        playerDead.Invoke();
     }
 
     public void DeadByLaserFallDmg()

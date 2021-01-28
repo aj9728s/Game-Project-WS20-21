@@ -10,16 +10,10 @@ public class KnifingEnemy : MonoBehaviour
     //private NavMeshAgent navMesh;
 
     [SerializeField]
-    private AudioSource taser;
-
-    [SerializeField]
     private Transform player;
 
     [SerializeField]
     private float killingDistance;
-
-    [SerializeField]
-    private UnityEvent playerDead;
 
     private bool playerDeadBool = false;
 
@@ -46,20 +40,16 @@ public class KnifingEnemy : MonoBehaviour
             {
                 Debug.Log(Vector3.Distance(transform.position, player.position));
                 
-                taser.Play();
+             
                 lightningPlayer.Invoke();
                 playerDeadBool = true;
-                StartCoroutine(DeathMenu());
+               
             }
         }
        
     }
 
-    IEnumerator DeathMenu()
-    {
-        yield return new WaitForSeconds(timeUntilDeathScreen);
-        playerDead.Invoke();
-    }
+   
 
     public void enableKnifing()
     {
