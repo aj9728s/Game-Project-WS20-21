@@ -39,6 +39,9 @@ public class HackingTool : MonoBehaviour
     private UnityEvent hackingCamera;
 
     [SerializeField]
+    private UnityEvent hackingDoor;
+
+    [SerializeField]
     private SOHintManager hintManager;
 
     [SerializeField]
@@ -52,6 +55,9 @@ public class HackingTool : MonoBehaviour
 
     private int sWeapon;
 
+    private int hackableObject;
+
+    private bool buttonHacked = false;
 
     void Start()
     {
@@ -60,7 +66,7 @@ public class HackingTool : MonoBehaviour
 
     void Update()
     {
-
+        Debug.Log(tag);
         hackingCharges = weaponManager.hackingCharges;
         sWeapon = weaponManager.selectedWeapon;
 
@@ -78,25 +84,46 @@ public class HackingTool : MonoBehaviour
 
         if (!isHacking && hackingCharges != 0 && Input.GetKeyDown(KeyCode.F) && sWeapon == weaponNR && inHackingRange)
         {
-            togglePlayerMov.Invoke();
+            
             hackingSound.Play();
             weaponManager.hackingCharges = weaponManager.hackingCharges - 1;
 
             if (tag == "SecurityCamera")
+            {
+               
+                togglePlayerMov.Invoke();
                 hackingCamera.Invoke();
+                isHacking = true;
+            }
+                
 
-            isHacking = true;
+            if (tag == "HackableButton")
+            {
+                buttonHacked = true;
+                hackingDoor.Invoke();
+                tag = "";
+                lineRenderer.SetPosition(0, lineRenderer.gameObject.transform.position);
+                lineRenderer.SetPosition(1, lineRenderer.gameObject.transform.position);
+                this.enabled = false;
+            }
+               
+
+            
         }
 
-        else if (isHacking && Input.GetKeyDown(KeyCode.F))
+        else if (isHacking && Input.GetKeyDown(KeyCode.F) && inHackingRange && sWeapon == weaponNR)
         {
-            togglePlayerMov.Invoke();
-            stopHackingSound.Play();
+            
 
             if (tag == "SecurityCamera")
+            {
+                
+                togglePlayerMov.Invoke();
+                stopHackingSound.Play();
                 hackingCamera.Invoke();
-
-            isHacking = false;
+                isHacking = false;
+            }
+                
         }
 
         StartCoroutine(lineRendererCoroutine());
@@ -109,17 +136,17 @@ public class HackingTool : MonoBehaviour
         {
             lineRenderer = hackableObjectsInSzene[i].GetComponentInChildren<LineRenderer>();
             
-            if (Vector3.Distance(hackableObjectsInSzene[i].transform.position, transform.position) < hackableRange)
+            if (Vector3.Distance(hackableObjectsInSzene[i].transform.position, transform.position) < hackableRange && !buttonHacked)
             {
                 if(sWeapon == weaponNR && hackingCharges != 0)
                 {
                     hintManager.command = buttonHint;
                     hintManager.timerCommand = 0.1f;
                 }
-               
 
                 inHackingRange = true;
                 tag = hackableObjectsInSzene[i].tag;
+                
                 lineRenderer.SetPosition(0, lineRenderer.gameObject.transform.position);
                 lineRenderer.SetPosition(1, transform.position);
                 lineRenderer.SetWidth(lineWidth, lineWidth);
@@ -127,10 +154,13 @@ public class HackingTool : MonoBehaviour
 
             else
             {
+               
                 inHackingRange = false;
                 tag = "";
                 lineRenderer.SetPosition(0, lineRenderer.gameObject.transform.position);
                 lineRenderer.SetPosition(1, lineRenderer.gameObject.transform.position);
+                
+                
             }
         }
         

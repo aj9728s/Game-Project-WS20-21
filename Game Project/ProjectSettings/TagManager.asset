@@ -12,6 +12,7 @@ TagManager:
   - SecurityCamera
   - ElevatorBlocker
   - BulletPlayer
+  - HackableButton
   layers:
   - Default
   - TransparentFX
