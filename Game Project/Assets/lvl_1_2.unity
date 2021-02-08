@@ -2801,8 +2801,8 @@ MonoBehaviour:
   elevatorDoorSound: {fileID: 129584804}
   elevatorMoveSound: {fileID: 243816908}
   delayClosingDoor: 1.5
+  delayCameraZoom: 0
   delayMovingElevator: 5.5
-  delayMovingCamera: 0
   camera: {fileID: 677559138}
   timeSzeneSwap: 6
   speed: 5.5
@@ -2837,6 +2837,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   lvlManager: {fileID: 11400000, guid: a9eef03453c52e54e931754335bb2649, type: 2}
+  openDoors: 0
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
 --- !u!65 &256688950
 BoxCollider:
@@ -3615,6 +3616,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!114 &327880902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3633,6 +3640,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!4 &327880903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
@@ -6983,6 +6996,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &660183105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 660183107}
+  - component: {fileID: 660183106}
+  m_Layer: 0
+  m_Name: WeaponManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &660183106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660183105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69881c303c4b3a4da4e33f551f36d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
+  WeaponPickUpPrefab: {fileID: 0}
+  player: {fileID: 309759428}
+--- !u!4 &660183107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660183105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -30.82186, y: 3.8759127, z: 33.943684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 43
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &665364592 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4677934931655457038, guid: 63a7b85d3cd5c224ca69bd9fd87f4811,
@@ -8914,6 +8973,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!1001 &952238168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11271,6 +11336,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!4 &1109687711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8197569619306399261, guid: f2a94f78cb190d143ab329a2180c3678,
@@ -11963,6 +12034,7 @@ MonoBehaviour:
   hintTriggerDistance: 2
   weapon: 1
   ammo: 0
+  ammoAmount: 0
   triggerAfterPickup:
     m_PersistentCalls:
       m_Calls:
@@ -11978,13 +12050,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
-  hintManager: {fileID: 11400000, guid: b89a4d10901e77048ace88ab06b11994, type: 2}
-  durationHint: 3
   timerObjectDestroy: 1
   weaponName: Flashlight
   weaponNR: 1
-  weaponHint: Das ist die Taschenlampe. Du kannst Sie mit Linksklick aktivieren/deaktivieren.
-    Aber auchte auf die Batterie!
+  weaponHintDialogue: Dies ist die Taschenlampe! Du kannst sie mit Linksklick aktivieren/deaktivieren.
+    Aber achte auf die Batterie!
+  weaponDialogue: {fileID: 11400000, guid: e97769f87d1e2ae4dae745bbf60fdd8e, type: 2}
 --- !u!65 &1235908914
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24860,6 +24931,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!114 &2110913472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24878,6 +24955,12 @@ MonoBehaviour:
   rotateSpeed: 0.000005
   moveSpeed: 0.000005
   angleRotation: 180
+  oneEnemie: 0
+  twoEnemies: 0
+  delayDoorCloseAuto: 2
+  enemyPosition1: {fileID: 0}
+  enemyPosition2: {fileID: 0}
+  triggerDistance: 8
 --- !u!4 &2110913473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6522967847908656892, guid: f6de65899446ea44bb1f1e73eee359fa,
@@ -25352,6 +25435,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 696156413, guid: 2f009d66b63798249a7801da8acc9f25, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1762874284, guid: 2f009d66b63798249a7801da8acc9f25, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1591648311755697894, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: m_RootOrder
@@ -25490,7 +25581,7 @@ PrefabInstance:
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
@@ -25606,6 +25697,11 @@ PrefabInstance:
         type: 3}
       propertyPath: lengthInSec
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235049075636177967, guid: 2f009d66b63798249a7801da8acc9f25,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6007396964591027404, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}

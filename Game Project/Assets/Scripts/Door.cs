@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
@@ -14,18 +15,43 @@ public class Door : MonoBehaviour
     private bool openLeft = true;
 
     [SerializeField]
-    private float rotateSpeed = 0.000005f;
+    private float rotateSpeed = 1f;
 
     [SerializeField]
-    private float moveSpeed = 0.000005f;
+    private float moveSpeed = 1f;
 
     [SerializeField]
-    private int angleRotation = 90;
+    private float angleRotation = 90.0f;
 
     private Vector3 destPos;
     private Vector3 closeDestPos;
 
     private int openDirection = -1;
+
+    private bool block = false;
+
+    [SerializeField]
+    private bool oneEnemie = false;
+
+    [SerializeField]
+    private bool twoEnemies = false;
+
+    private bool doorOpenState = false;
+
+    [SerializeField]
+    private float delayDoorCloseAuto = 2.0f;
+
+    [SerializeField]
+    private Transform enemyPosition1;
+
+    [SerializeField]
+    private Transform enemyPosition2;
+
+    [SerializeField]
+    private float triggerDistance = 8;
+
+    //SpecialCase
+    private int counter = 0;
 
     void Start()
     {
@@ -42,11 +68,55 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        // ZUM TESTEN !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // StartCoroutine(RotateDoor());
-        // StartCoroutine(MoveDoor());
+        if (oneEnemie && Vector3.Distance(transform.parent.position, enemyPosition1.position) <= triggerDistance)
+        {
+            block = true;
+            openDoorEnemy();
+        }
+
+  
+        if (twoEnemies && Vector3.Distance(transform.parent.position, enemyPosition2.position) <= triggerDistance)
+        {
+            block = true;
+            openDoorEnemy();
+                
+        }
+        
     }
-    
+
+
+    public void toggleDoor()
+    {
+        if (!doorOpenState)
+        {
+            openDoor();
+        }
+
+        else
+        {
+            closeDoor();
+        }
+
+    }
+
+    private void openDoorEnemy()
+    {
+        if (!doorOpenState)
+        {
+            openDoor();
+            StartCoroutine(closeDoorEnemy());
+        }
+ 
+    }
+
+    IEnumerator closeDoorEnemy()
+    {
+        yield return new WaitForSeconds(delayDoorCloseAuto);
+        if(oneEnemie || twoEnemies)
+            closeDoor();
+        block = false;
+    }
+
     public void openDoor()
     {
         doorSound.Play();
@@ -57,6 +127,7 @@ public class Door : MonoBehaviour
 
     public void closeDoor()
     {
+        doorSound.Play();
         StartCoroutine(CloseRotateDoor());
         StartCoroutine(CloseMoveDoor());
         
@@ -65,32 +136,68 @@ public class Door : MonoBehaviour
 
     IEnumerator RotateDoor()
     {
-        if(angleRotation < 0)
+        if(angleRotation < 0.0f)
         {
-            while (transform.localRotation.z > angleRotation)
+            
+            while (transform.localEulerAngles.z - 360 > (angleRotation + 2f) || transform.localEulerAngles.z == 0)
             {
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, angleRotation * openDirection), rotateSpeed * Time.deltaTime);
+                
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, angleRotation), rotateSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            transform.localRotation = Quaternion.Euler(0, 0, angleRotation);
+            yield return null;
         }
 
         else
         {
-            while (transform.localRotation.z < angleRotation)
+           
+            while (transform.localEulerAngles.z < (angleRotation - 2f)  || transform.localEulerAngles.z == 0)
             {
-                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, angleRotation * openDirection), rotateSpeed * Time.deltaTime);
+                
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, angleRotation), rotateSpeed * Time.deltaTime);
                 yield return null;
             }
-        }
-        
 
-        transform.localRotation = Quaternion.Euler(0, 0, angleRotation * openDirection);
-        yield return null;
+            transform.localRotation = Quaternion.Euler(0, 0, angleRotation);
+            yield return null;
+        }
+
+    
+    }
+
+    IEnumerator CloseRotateDoor()
+    {
+        if (angleRotation < 0)
+        {
+            while (transform.localEulerAngles.z - 360 < -2)
+            {
+                
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, -angleRotation), rotateSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            yield return null;
+        }
+
+        else
+        {
+            while (transform.localEulerAngles.z > 2)
+            {
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0, 0, -angleRotation), rotateSpeed * Time.deltaTime);
+                yield return null;
+            }
+
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            yield return null;
+        }
     }
 
     IEnumerator MoveDoor()
     {
-
+        doorOpenState = true;
         if (openDirection == 1)
         {
             while (transform.localPosition.x < destPos.x - 0.1)
@@ -112,46 +219,53 @@ public class Door : MonoBehaviour
         yield return null;
     }
 
-    
-     
-    IEnumerator CloseRotateDoor()
-    {
-
-        while (transform.rotation.z > 0)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, angleRotation * -openDirection), rotateSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        transform.rotation = Quaternion.Euler(0, 0, angleRotation * -openDirection);
-        yield return null;
-    }
 
     IEnumerator CloseMoveDoor()
     {
-        closeDestPos = transform.position;
+        doorOpenState = false;
+        closeDestPos = transform.localPosition;
         closeDestPos.x += transform.localScale.x * -openDirection;
 
         if (openDirection == 1)
         {
-            while (transform.position.x > closeDestPos.x)
+            while (transform.localPosition.x > closeDestPos.x + 0.1)
             {
-                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.deltaTime);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, closeDestPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            transform.localPosition = closeDestPos;
+            yield return null;
         }
         else
         {
-            while (transform.position.x < closeDestPos.x)
+            while (transform.localPosition.x < closeDestPos.x - 0.1)
             {
-                transform.position = Vector3.Lerp(transform.position, closeDestPos, moveSpeed * Time.deltaTime);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, closeDestPos, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            transform.localPosition = closeDestPos;
+            yield return null;
         }
 
-        transform.position = closeDestPos;
-        yield return null;
+        
     }
 
-    
+    public void disableOpenByEnemie()
+    {
+        oneEnemie = false;
+        twoEnemies = false;
+    }
+
+    public void disableOpenAfterSomeEnemiesDead()
+    {
+        counter++;
+        if(counter == 2)
+        {
+            disableOpenByEnemie();
+        }
+    }
+
+
 }

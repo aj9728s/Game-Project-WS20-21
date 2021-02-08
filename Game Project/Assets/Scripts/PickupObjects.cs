@@ -28,16 +28,13 @@ public class PickupObjects : MonoBehaviour
     private bool ammo;
 
     [SerializeField]
+    private int ammoAmount;
+
+    [SerializeField]
     private UnityEvent triggerAfterPickup;
 
     [SerializeField]
     private SOWeaponManager weaponManager;
-
-    [SerializeField]
-    private SOHintManager hintManager;
-
-    [SerializeField]
-    private float durationHint;
 
     [SerializeField]
     private float timerObjectDestroy;
@@ -49,7 +46,12 @@ public class PickupObjects : MonoBehaviour
     public int weaponNR;
 
     [SerializeField]
-    private string weaponHint;
+    private string weaponHintDialogue;
+
+    private bool triggered = false;
+
+    [SerializeField]
+    private SODialogue weaponDialogue;
 
     void Start()
     {
@@ -62,51 +64,76 @@ public class PickupObjects : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         
-
         if (other.CompareTag("Player"))
         {
             if (weapon && withTrigger)
             {
                 PickUpSound.Play();
-                hintManager.textHint = weaponHint;
-                hintManager.timerText = durationHint;
+                weaponDialogue.dialogue[0] = weaponHintDialogue;
                 weaponManager.weapons.Add(weaponNR);
                 weaponManager.weaponsName.Add(weaponName);
                 weaponManager.selectedWeapon = weaponNR;
 
-                //GunLayout.SetActive(true);
                 triggerAfterPickup.Invoke();
-
                 Destroy(gameObject, timerObjectDestroy);
 
             }
-          
+
+            if (ammo && withTrigger)
+            {
+                
+
+            }
+
         }
 
     }
 
     void Update() {
-        if (weapon && withDistanceTrigger){
+
+        if (weapon && withDistanceTrigger && !triggered)
+        {
        
            if( Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance && !checkIfAlreadyPickedUp())
+           {
+                PickUpSound.Play();
+                triggeredDistance();
+                triggered = true;
+
+            }
+        }
+
+        if (ammo && withDistanceTrigger && !triggered)
+        {
+
+            if (Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance)
             {
                 PickUpSound.Play();
                 triggeredDistance();
+                triggered = true;
 
-           }
+            }
         }
     }
 
     private void triggeredDistance()
     {
-        hintManager.textHint = weaponHint;
-        hintManager.timerText = durationHint;
-        weaponManager.weapons.Add(weaponNR);
-        weaponManager.weaponsName.Add(weaponName);
-        weaponManager.selectedWeapon = weaponNR;
+        if (weapon)
+        {
+            weaponDialogue.dialogue[0] = weaponHintDialogue;
+            weaponManager.weapons.Add(weaponNR);
+            weaponManager.weaponsName.Add(weaponName);
+            weaponManager.selectedWeapon = weaponNR;
 
-        triggerAfterPickup.Invoke();
-        Destroy(gameObject, timerObjectDestroy);
+            triggerAfterPickup.Invoke();
+            Destroy(gameObject, timerObjectDestroy);
+        }
+
+        if (ammo)
+        {
+            weaponManager.ammoAmount = weaponManager.ammoAmount + ammoAmount;
+            Destroy(gameObject, timerObjectDestroy);
+        }
     }
 
     private bool checkIfAlreadyPickedUp()

@@ -125,9 +125,5 @@ public class DialogueManager : MonoBehaviour
 
         border.enabled = true;
         
-
-
-
-
     }
 }

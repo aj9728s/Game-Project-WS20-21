@@ -45,6 +45,7 @@ public class GuardEnemy : MonoBehaviour
 
     [SerializeField]
     private float viewDistance;
+
     [SerializeField]
     private LayerMask viewMask;
 
@@ -73,6 +74,12 @@ public class GuardEnemy : MonoBehaviour
     [SerializeField]
     private UnityEvent enableKnifing;
 
+    [SerializeField]
+    private AudioSource enemyDeadSound;
+
+    [SerializeField]
+    private UnityEvent trigerAfterDead;
+
     private bool spotted = false;
     private bool canSeeTrigger = false;
 
@@ -92,9 +99,37 @@ public class GuardEnemy : MonoBehaviour
 
     private bool detectedByRadius = false;
 
+    private bool enemyDead = false;
+
     void Start()
     {
         triggerStart.Invoke();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+      
+        if (collision.gameObject.CompareTag("BulletPlayer") && !enemyDead)
+        {
+            EnemyDead();
+        }
+    }
+
+    void EnemyDead()
+    {
+        enemyDead = true;
+        enemyDeadSound.Play();
+
+        enemymusic.Stop();
+        chasing.Stop();
+        defaultmusic.Pause();
+        defaultmusic.Play();
+        trigerAfterDead.Invoke();
+        //animation
+        GetComponent<KnifingEnemy>().enabled = false;
+        GetComponent<GuardEnemy>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = true;
     }
 
     void FixedUpdate()
@@ -181,7 +216,7 @@ public class GuardEnemy : MonoBehaviour
 
     }
 
-        IEnumerator FollowPath(Vector3[] waypoints)
+    IEnumerator FollowPath(Vector3[] waypoints)
     {
         transform.position = waypoints[0];
         int targetWaypointIndex = 1;

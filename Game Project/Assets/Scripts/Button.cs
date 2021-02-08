@@ -37,11 +37,17 @@ public class Button : MonoBehaviour
     [SerializeField]
     private UnityEvent[] triggerWithPush;
 
+    [SerializeField]
+    private bool multipleTimeUse;
+
+    [SerializeField]
+    private float cooldowenBetweenUses = 3.0f;
+
     private bool method1Done = false;
 
-    private int counter = 0;
+    private bool multipleTimeUseBlock = false;
 
-    private bool oneTimeUseBool = true;
+    private int counter = 0;
 
     // Update is called once per frame
     void Update()
@@ -52,11 +58,11 @@ public class Button : MonoBehaviour
           
             if (Input.GetKeyDown(KeyCode.F))
             {
-                buttonsound.Play();
+                
 
                 if (oneTimeUse)
                 {
-                    oneTimeUseBool = false;
+                    buttonsound.Play();
                     method1.Invoke();
                     method1Done = true;
                     if(!triggerMethod2)
@@ -75,6 +81,15 @@ public class Button : MonoBehaviour
                     }
                         
                 }
+
+                else if (multipleTimeUse && !multipleTimeUseBlock)
+                {
+                    buttonsound.Play();
+                    method1.Invoke();
+                    StartCoroutine(multipleTimeUseTimer());
+                    multipleTimeUseBlock = true;
+
+                }
             }
         }
 
@@ -91,5 +106,11 @@ public class Button : MonoBehaviour
         yield return new WaitForSeconds(delayTriggerMethod2);
         method2.Invoke();
         Destroy(this.GetComponent<Button>());
+    }
+
+    IEnumerator multipleTimeUseTimer()
+    {
+        yield return new WaitForSeconds(cooldowenBetweenUses);
+        multipleTimeUseBlock = false;
     }
 }
