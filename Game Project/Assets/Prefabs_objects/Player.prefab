@@ -5305,7 +5305,7 @@ MonoBehaviour:
   deathmusicLaserFallDmg: {fileID: 0}
   walkSpeed: 4.5
   sneakSpeed: 1.5
-  OutOfTheMapY: -0.4903268
+  OutOfTheMapY: -4
   lvlManagerPlayerDied:
     m_PersistentCalls:
       m_Calls:
@@ -5573,6 +5573,70 @@ MonoBehaviour:
   weaponNR: 1
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
   maxTime: 30
+--- !u!114 &391121700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5870389001628556255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a3f23ffbbc860498dc4e8aaa83cf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hackingSound: {fileID: 0}
+  stopHackingSound: {fileID: 0}
+  togglePlayerMov:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2694409856726422901}
+        m_MethodName: toggleMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  weaponNR: 3
+  hackableObjectsInSzene:
+  - {fileID: 0}
+  weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
+  hackableRange: 4
+  lineWidth: 0.05
+  hackingCamera:
+    m_PersistentCalls:
+      m_Calls: []
+  hackingDoor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: openDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: closeDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  hintManager: {fileID: 11400000, guid: b89a4d10901e77048ace88ab06b11994, type: 2}
+  buttonHint: F
 --- !u!1 &6007396964591027404
 GameObject:
   m_ObjectHideFlags: 0
@@ -10477,6 +10541,69 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &406737921
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 696156413}
+    m_Modifications:
+    - target: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_Name
+      value: TinyExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.645
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6206127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.78411734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+--- !u!198 &198175801551094741 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198175801688348628, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 406737921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5629244324379046508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10582,6 +10709,12 @@ PrefabInstance:
       objectReference: {fileID: 2694409856726422901}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ef192c713cf03243b0def32fb6b9b69, type: 3}
+--- !u!1 &5870389001628556255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2263296663396362675, guid: 1ef192c713cf03243b0def32fb6b9b69,
+    type: 3}
+  m_PrefabInstance: {fileID: 5629244324379046508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5235049075636177967 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484619123766541891, guid: 1ef192c713cf03243b0def32fb6b9b69,
@@ -10605,6 +10738,11 @@ PrefabInstance:
       propertyPath: noAmmo
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8070480921867644704, guid: 391ad71d4d3a66b4b916e8adf65e2969,
+        type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 198175801551094741}
     - target: {fileID: 8070480923367558657, guid: 391ad71d4d3a66b4b916e8adf65e2969,
         type: 3}
       propertyPath: m_RootOrder

@@ -331,4 +331,10 @@ public class GuardEnemy : MonoBehaviour
 
     }
 
+    public void EnableEnemieChasing()
+    {
+        canSeeTrigger = true;
+
+    }
+
 }

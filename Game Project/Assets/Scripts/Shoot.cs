@@ -21,6 +21,9 @@ public class Shoot : MonoBehaviour
     private AudioSource shoot;
 
     [SerializeField]
+    private ParticleSystem explosion;
+
+    [SerializeField]
     private AudioSource noAmmo;
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class Shoot : MonoBehaviour
         {
             Shootf();
             shoot.Play();
+            explosion.Play();
             weaponManager.ammoAmount -= 1;
         }
 

@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 
 public class SecurityCamera : MonoBehaviour
 {
-  
     [SerializeField]
     private AudioSource alarm;
 
@@ -29,6 +28,21 @@ public class SecurityCamera : MonoBehaviour
 
     [SerializeField]
     private UnityEvent triggerAfterDetected;
+
+    [SerializeField]
+    private bool turningAround = false;
+
+    [SerializeField]
+    private float turningDirection = 1;
+
+    [SerializeField]
+    private float turningSpeed = 5;
+
+    [SerializeField]
+    private float turningMax;
+
+    [SerializeField]
+    private float turningMin;
 
 
     private bool playerDetected = false;
@@ -61,10 +75,19 @@ public class SecurityCamera : MonoBehaviour
         }
 
         // Hints
+        if (turningAround)
+        {
+            Debug.Log(transform.localEulerAngles.y);
+
+            if (transform.localEulerAngles.y >= turningMin -2 && transform.localEulerAngles.y <= turningMin + 2 || transform.localEulerAngles.y >= turningMax - 2 && transform.localEulerAngles.y <= turningMax + 2)
+                turningDirection *= -1;
+
+            transform.Rotate(0, turningSpeed * turningDirection * Time.deltaTime, 0); 
+        }
 
         if (isHacked)
         {
-          
+            
             if (Input.GetKey(KeyCode.A))
             {
                 transform.Rotate(new Vector3(0, 1, 0) * Time.deltaTime * -cameraMoveSpeed, Space.World);
@@ -122,6 +145,7 @@ public class SecurityCamera : MonoBehaviour
 
     public void toggleHacking()
     {
+        turningAround = false;
         isHacked = !isHacked;
         mainCamera.GetComponent<Camera>().enabled = !mainCamera.GetComponent<Camera>().enabled;
         GetComponentInChildren<Camera>().enabled = !GetComponentInChildren<Camera>().enabled;

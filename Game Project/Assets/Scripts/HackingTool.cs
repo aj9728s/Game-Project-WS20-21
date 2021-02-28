@@ -66,7 +66,7 @@ public class HackingTool : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(tag);
+        
         hackingCharges = weaponManager.hackingCharges;
         sWeapon = weaponManager.selectedWeapon;
 

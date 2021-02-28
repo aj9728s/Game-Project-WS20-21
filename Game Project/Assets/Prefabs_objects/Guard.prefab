@@ -435,7 +435,7 @@ MonoBehaviour:
   viewDistance: 7
   viewMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   pathHolder: {fileID: 0}
   player: {fileID: 0}
   shootingEnemy: 0
@@ -459,6 +459,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  enemyDeadSound: {fileID: 0}
+  trigerAfterDead:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &2217563240381275884
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -773,7 +777,7 @@ Light:
   m_InnerSpotAngle: 6
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
