@@ -38,7 +38,7 @@ public class KnifingEnemy : MonoBehaviour
             //navMesh.SetDestination(targetWaypoint);
             if (Vector3.Distance(transform.position, player.position) < killingDistance)
             {
-                Debug.Log(Vector3.Distance(transform.position, player.position));
+
                 
              
                 lightningPlayer.Invoke();

@@ -77,7 +77,7 @@ public class SecurityCamera : MonoBehaviour
         // Hints
         if (turningAround)
         {
-            Debug.Log(transform.localEulerAngles.y);
+
 
             if (transform.localEulerAngles.y >= turningMin -2 && transform.localEulerAngles.y <= turningMin + 2 || transform.localEulerAngles.y >= turningMax - 2 && transform.localEulerAngles.y <= turningMax + 2)
                 turningDirection *= -1;

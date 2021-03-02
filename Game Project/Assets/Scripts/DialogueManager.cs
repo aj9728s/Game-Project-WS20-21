@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
 
     public void augmentDialogueState()
     {
-        Debug.Log("test");
+
         if (paperSound)
         {
             paperSlideSound.Play();
