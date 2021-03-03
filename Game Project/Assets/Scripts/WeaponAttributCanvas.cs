@@ -81,9 +81,10 @@ public class WeaponAttributCanvas : MonoBehaviour
             ammo.enabled = false;
             imageCenter.color = new Color(0, 0, 0, 0);
             imageCenter.sprite = null;
-            imageLeft.color = new Color(0, 0, 0, 0);
-            imageLeft.sprite = null;
+            imageLeft.color = new Color(255, 255, 255, 255);
+            imageLeft.sprite = images[6];
             border.enabled = true;
+            
 
             hackingCharge.enabled = true;
             hackingCharge.text = weaponManager.hackingCharges.ToString();

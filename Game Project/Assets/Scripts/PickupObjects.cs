@@ -31,6 +31,12 @@ public class PickupObjects : MonoBehaviour
     private int ammoAmount;
 
     [SerializeField]
+    private bool hackAmmo;
+
+    [SerializeField]
+    private int hackAmount;
+
+    [SerializeField]
     private UnityEvent triggerAfterPickup;
 
     [SerializeField]
@@ -114,6 +120,18 @@ public class PickupObjects : MonoBehaviour
 
             }
         }
+
+        if (hackAmmo && withDistanceTrigger && !triggered)
+        {
+
+            if (Vector3.Distance(this.transform.position, player.transform.position) <= hintTriggerDistance)
+            {
+                PickUpSound.Play();
+                triggeredDistance();
+                triggered = true;
+
+            }
+        }
     }
 
     private void triggeredDistance()
@@ -132,6 +150,12 @@ public class PickupObjects : MonoBehaviour
         if (ammo)
         {
             weaponManager.ammoAmount = weaponManager.ammoAmount + ammoAmount;
+            Destroy(gameObject, timerObjectDestroy);
+        }
+
+        if (hackAmmo)
+        {
+            weaponManager.hackingCharges = weaponManager.hackingCharges + hackAmount;
             Destroy(gameObject, timerObjectDestroy);
         }
     }

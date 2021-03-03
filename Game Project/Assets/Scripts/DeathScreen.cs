@@ -22,7 +22,7 @@ public class DeathScreen : MonoBehaviour
 
         deathScreenUI.SetActive(false);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("lvl_1_2",LoadSceneMode.Single);
+        SceneManager.LoadScene("Lvl_2",LoadSceneMode.Single);
     }
 
 }

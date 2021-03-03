@@ -48,8 +48,7 @@ public class Fahrstuhl : MonoBehaviour
     [SerializeField]
     private SOLvLManager lvlManager;
 
-    [SerializeField]
-    private bool openDoors = false;
+    public bool openDoors = false;
 
     private bool doorTriggered = false;
 
@@ -125,11 +124,11 @@ public class Fahrstuhl : MonoBehaviour
     {
         lvlManager.absolviertesLVL = 2;
         yield return new WaitForSeconds(timeSzeneSwap);
-        weaponManager.selectedWeapon = 0;
-        weaponManager.weapons.Clear();
-        weaponManager.weaponsName.Clear();
+        weaponManager.selectedWeapon = 1;
+        //weaponManager.weapons.Clear();
+        //weaponManager.weaponsName.Clear();
         Scene actualScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(actualScene.buildIndex + 1);
     }
 
     void FixedUpdate()

@@ -337,4 +337,12 @@ public class GuardEnemy : MonoBehaviour
 
     }
 
+    public void EnableEnemieChasingAndGetVisible()
+    {
+        TriggerEnemie();
+        this.gameObject.active = true;
+        canSeeTrigger = true;
+
+    }
+
 }
