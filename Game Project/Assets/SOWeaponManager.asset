@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoAmount: 0
   batteryLevel: 4
-  weapons: 
+  weapons: 0200000003000000
   weaponsName:
   - Pistol
   - Pistol
@@ -24,6 +24,8 @@ MonoBehaviour:
   - HackingTool
   - Pistol
   - HackingTool
-  selectedWeapon: 0
+  - Pistol
+  - HackingTool
+  selectedWeapon: 3
   sneaking: 0
-  hackingCharges: 0
+  hackingCharges: 1
