@@ -24156,7 +24156,7 @@ PrefabInstance:
     - target: {fileID: 2217563240381275886, guid: 869710801bce2054a988dcc04df16df2,
         type: 3}
       propertyPath: lightningPlayer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateParticleEffect
+      value: DeadByLaserFallDmg
       objectReference: {fileID: 0}
     - target: {fileID: 2217563240381275886, guid: 869710801bce2054a988dcc04df16df2,
         type: 3}
@@ -25610,7 +25610,7 @@ PrefabInstance:
     - target: {fileID: 2217563240381275886, guid: 869710801bce2054a988dcc04df16df2,
         type: 3}
       propertyPath: lightningPlayer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateParticleEffect
+      value: DeadByLaserFallDmg
       objectReference: {fileID: 0}
     - target: {fileID: 2217563240381275886, guid: 869710801bce2054a988dcc04df16df2,
         type: 3}
@@ -25751,6 +25751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
+      propertyPath: playerDead.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 451538507}
+    - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
+        type: 3}
       propertyPath: deadByFallDmg.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -25759,6 +25764,11 @@ PrefabInstance:
       propertyPath: deadByFallDmg.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1101725210}
+    - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
+        type: 3}
+      propertyPath: playerDead.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayerDied
+      objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422901, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: deadByFallDmg.m_PersistentCalls.m_Calls.Array.data[0].m_CallState

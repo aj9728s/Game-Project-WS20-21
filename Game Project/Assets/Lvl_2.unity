@@ -31124,8 +31124,8 @@ MonoBehaviour:
   timerObjectDestroy: 1
   weaponName: Pistol
   weaponNR: 2
-  weaponHintDialogue: Mit dieser Pistole kannst du dich verteidigen. In einem benachbarten
-    Raum findest du Munition.
+  weaponHintDialogue: "Mit dieser Pistole kannst du dich verteidigen. In einem der
+    gegen\xFCberliegenden R\xE4ume sollte Munition liegen"
   weaponDialogue: {fileID: 11400000, guid: e97769f87d1e2ae4dae745bbf60fdd8e, type: 2}
 --- !u!1001 &1920273272
 PrefabInstance:
@@ -32636,6 +32636,11 @@ PrefabInstance:
       propertyPath: movingCamera
       value: 
       objectReference: {fileID: 831840677}
+    - target: {fileID: 2963011121911688267, guid: dd878fa7f11132344a874ed1bdac1317,
+        type: 3}
+      propertyPath: viewDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2963011121911688267, guid: dd878fa7f11132344a874ed1bdac1317,
         type: 3}
       propertyPath: triggerAfterDetected.m_PersistentCalls.m_Calls.Array.size
