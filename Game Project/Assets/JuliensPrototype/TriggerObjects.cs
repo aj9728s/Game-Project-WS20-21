@@ -14,10 +14,10 @@ public class TriggerObjects : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("1");
+        
         if (other.CompareTag("Player"))
         {
-            Debug.Log("wrq");
+            
             door.SetActive(true);
             enableObject.Invoke();
         }

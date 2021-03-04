@@ -21,18 +21,19 @@ public class RGBCubes : MonoBehaviour
     private SOPuzzleManager puzzleManager;
 
     [SerializeField]
-    private SOAmmoManager command;
+    private SOHintManager hintManager;
+
 
 
     // Update is called once per frame
     void Update()
     {
      
-        if (Vector3.Distance(this.transform.position, player.transform.position) <= 2)
+        if (Vector3.Distance(this.transform.position, player.transform.position) <= 4)
         {
-            
-            command.command = "F";
-            command.timerCommand = 0.1f;
+
+            hintManager.command = "F";
+            hintManager.timerCommand = 0.1f;
 
             if (Input.GetKeyDown(KeyCode.F))
             {
