@@ -122,7 +122,7 @@ public class Fahrstuhl : MonoBehaviour
 
     IEnumerator changeSzene()
     {
-        lvlManager.absolviertesLVL = 2;
+        lvlManager.absolviertesLVL = 3;
         yield return new WaitForSeconds(timeSzeneSwap);
         weaponManager.selectedWeapon = 1;
         //weaponManager.weapons.Clear();

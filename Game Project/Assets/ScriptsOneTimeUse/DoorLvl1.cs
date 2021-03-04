@@ -16,6 +16,9 @@ public class DoorLvl1 : MonoBehaviour
     private AudioSource tinnitus;
 
     [SerializeField]
+    private SOLvLManager lvLManager;
+
+    [SerializeField]
     private float timeSzeneSwap;
 
     [SerializeField]
@@ -47,6 +50,7 @@ public class DoorLvl1 : MonoBehaviour
 
     IEnumerator changeSzene()
     {
+        lvLManager.absolviertesLVL = 1;
         yield return new WaitForSeconds(timeSzeneSwap);
         explosion.Play();
         yield return new WaitForSeconds(1);

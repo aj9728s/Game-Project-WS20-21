@@ -74,11 +74,18 @@ public class PickupObjects : MonoBehaviour
         {
             if (weapon && withTrigger)
             {
+         
                 PickUpSound.Play();
                 weaponDialogue.dialogue[0] = weaponHintDialogue;
                 weaponManager.weapons.Add(weaponNR);
                 weaponManager.weaponsName.Add(weaponName);
                 weaponManager.selectedWeapon = weaponNR;
+
+                if(weaponNR == 3)
+                {
+                    weaponManager.hackingCharges = 1;
+
+                }
 
                 triggerAfterPickup.Invoke();
                 Destroy(gameObject, timerObjectDestroy);

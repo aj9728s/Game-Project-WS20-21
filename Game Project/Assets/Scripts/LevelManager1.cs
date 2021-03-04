@@ -13,6 +13,11 @@ public class LevelManager1 : MonoBehaviour
     [SerializeField]
     private UnityEvent deathScreenTrigger;
 
+    void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void PlayerDied()
     {
         deathScreenTrigger.Invoke();

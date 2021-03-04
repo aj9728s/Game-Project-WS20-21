@@ -22,7 +22,10 @@ public class LevelManager2 : MonoBehaviour
 
     void Start()
     {
-        if(lvl2Manager.checkpoint2 == true)
+        
+        Time.timeScale = 1;
+        
+        if (lvl2Manager.checkpoint2 == true)
         {
             fahrstuhl.openDoors = false;
             player.transform.position = new Vector3(-58.04f,2.28f,163.07f);

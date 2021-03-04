@@ -12129,6 +12129,8 @@ MonoBehaviour:
   weapon: 1
   ammo: 0
   ammoAmount: 0
+  hackAmmo: 0
+  hackAmount: 0
   triggerAfterPickup:
     m_PersistentCalls:
       m_Calls:
@@ -25800,7 +25802,7 @@ PrefabInstance:
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 83.9
+      value: -1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2694409856726422903, guid: 2f009d66b63798249a7801da8acc9f25,
         type: 3}
