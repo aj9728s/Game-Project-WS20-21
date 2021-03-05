@@ -42,6 +42,9 @@ public class HackingTool : MonoBehaviour
     private UnityEvent hackingDoor;
 
     [SerializeField]
+    private UnityEvent terminalChangeColor;
+
+    [SerializeField]
     private SOHintManager hintManager;
 
     [SerializeField]
@@ -106,9 +109,19 @@ public class HackingTool : MonoBehaviour
                 lineRenderer.SetPosition(1, lineRenderer.gameObject.transform.position);
                 this.enabled = false;
             }
-               
 
-            
+            if (tag == "HackableTerminal")
+            {
+                buttonHacked = true;
+                terminalChangeColor.Invoke();
+                tag = "";
+                lineRenderer.SetPosition(0, lineRenderer.gameObject.transform.position);
+                lineRenderer.SetPosition(1, lineRenderer.gameObject.transform.position);
+                this.enabled = false;
+            }
+
+
+
         }
 
         else if (isHacking && Input.GetKeyDown(KeyCode.F) && inHackingRange && sWeapon == weaponNR)
@@ -167,6 +180,11 @@ public class HackingTool : MonoBehaviour
         yield return null;
 
 
+    }
+
+    public void diableScript()
+    {
+        this.enabled = false;
     }
 
 }

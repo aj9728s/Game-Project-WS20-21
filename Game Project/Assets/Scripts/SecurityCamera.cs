@@ -71,7 +71,9 @@ public class SecurityCamera : MonoBehaviour
         if (CanSeePlayer())
         {
             alarm.Play();
+            StartCoroutine(cooldown());
             triggerAfterDetected.Invoke();
+            
         }
 
         // Hints
@@ -155,5 +157,14 @@ public class SecurityCamera : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
+    }
+
+    IEnumerator cooldown()
+    {
+        yield return new WaitForSeconds(10);
+        alarm.Pause();
+
+
+
     }
 }

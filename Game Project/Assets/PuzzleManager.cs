@@ -20,6 +20,9 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField]
     private SOPuzzleManager puzzleManager;
 
+    [SerializeField]
+    private SOCheckpointLvl3 checkpoint;
+
     private bool hintTrigger;
 
 
@@ -32,6 +35,7 @@ public class PuzzleManager : MonoBehaviour
             light.active = true;
             hackCharge.active = true;
             this.gameObject.active = false;
+            checkpoint.checkpoint1 = true;
         }
     }
 

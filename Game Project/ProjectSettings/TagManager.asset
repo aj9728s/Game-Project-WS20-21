@@ -13,6 +13,8 @@ TagManager:
   - ElevatorBlocker
   - BulletPlayer
   - HackableButton
+  - HackableTerminal
+  - lul
   layers:
   - Default
   - TransparentFX
