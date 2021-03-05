@@ -28385,6 +28385,7 @@ MonoBehaviour:
         m_CallState: 2
   lvlManager: {fileID: 11400000, guid: a9eef03453c52e54e931754335bb2649, type: 2}
   openDoors: 0
+  absorbiertesLvl: 3
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
 --- !u!65 &1772300379
 BoxCollider:
@@ -35256,6 +35257,7 @@ MonoBehaviour:
         m_CallState: 2
   lvlManager: {fileID: 11400000, guid: a9eef03453c52e54e931754335bb2649, type: 2}
   openDoors: 0
+  absorbiertesLvl: 2
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
 --- !u!65 &5873729196670872449
 BoxCollider:

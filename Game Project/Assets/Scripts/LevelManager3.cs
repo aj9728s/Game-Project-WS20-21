@@ -9,6 +9,9 @@ public class LevelManager3 : MonoBehaviour
     private UnityEvent deathScreenTrigger;
 
     [SerializeField]
+    private UnityEvent openDoor;
+
+    [SerializeField]
     private SOWeaponManager hackingCharge;
 
     [SerializeField]
@@ -41,36 +44,50 @@ public class LevelManager3 : MonoBehaviour
     [SerializeField]
     private GameObject wall2;
 
+    private bool finished = false;
+
     void Start()
     {
 
         Time.timeScale = 1;
 
-        if (lvl3Manager.checkpoint2 == true)
+        if (lvl3Manager.checkpoint2)
         {
-           
-            changeStationColor2.Invoke();
+            tag2.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
+            //changeStationColor2.Invoke();
             fahrstuhl.openDoors = false;
             player.transform.position = new Vector3(-79.38f, 1.6f, -26.28f);
             tag2.tag = "lul";
             wall1.active = true;
             wall2.active = true;
             hackingCharge.hackingCharges = 0;
+            lvl3Manager.terminal2 = true;
+            
         }
 
-        else if (lvl3Manager.checkpoint1 == true)
+        if (lvl3Manager.checkpoint1)
         {
-            changeStationColor1.Invoke();
+            tag1.GetComponent<Renderer>().material.SetColor("_EmissionColor", Color.green);
             tag1.tag = "lul";
             closeDoor.Invoke();
             fahrstuhl.openDoors = false;
             player.transform.position = new Vector3(-79.38f, 1.6f, -26.28f);
             hackingCharge.hackingCharges = 0;
+            lvl3Manager.terminal1 = true;
         }
 
         else
         {
 
+        }
+    }
+
+    void Update()
+    {
+        if (lvl3Manager.terminal1 && lvl3Manager.terminal2 && !finished)
+        {
+            openDoor.Invoke();
+            finished = true;
         }
     }
 

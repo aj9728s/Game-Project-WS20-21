@@ -2839,6 +2839,7 @@ MonoBehaviour:
         m_CallState: 2
   lvlManager: {fileID: 11400000, guid: a9eef03453c52e54e931754335bb2649, type: 2}
   openDoors: 0
+  absorbiertesLvl: 2
   weaponManager: {fileID: 11400000, guid: b8d5a6f3ff8c1c84aa62395e4021b66c, type: 2}
 --- !u!65 &256688950
 BoxCollider:
@@ -3921,6 +3922,8 @@ MonoBehaviour:
   triggerAfterAction:
     m_PersistentCalls:
       m_Calls: []
+  withCooldown: 0
+  cooldown: 3.5
 --- !u!4 &380561797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1410584811640185414, guid: 99b6d145329fc3840b678f2e4a4fc95b,

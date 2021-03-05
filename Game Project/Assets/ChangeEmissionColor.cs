@@ -7,6 +7,15 @@ public class ChangeEmissionColor : MonoBehaviour
     private Material myMat;
 
     [SerializeField]
+    private bool open1 = false;
+
+    [SerializeField]
+    private bool open2 = false;
+
+    [SerializeField]
+    private SOCheckpointLvl3 lvl3Manager;
+
+    [SerializeField]
     private float intensity = 1.5f;
 
     void Start()
@@ -22,8 +31,17 @@ public class ChangeEmissionColor : MonoBehaviour
 
     public void turnToGreen()
     {
-        myMat.SetColor("_EmissionColor", new Vector4(0, 255, 0, intensity));
+        myMat.SetColor("_EmissionColor", Color.green);
 
+        if (open1)
+        {
+            lvl3Manager.terminal1 = true;
+        }
+
+        if (open2)
+        {
+            lvl3Manager.terminal2 = true;
+        }
 
     }
 }

@@ -54,6 +54,9 @@ public class Fahrstuhl : MonoBehaviour
 
     private bool startMoving = false;
 
+    [SerializeField]
+    private int absorbiertesLvl;
+
     private Vector3 offset;
     // Start is called before the first frame update
     [SerializeField]
@@ -122,7 +125,7 @@ public class Fahrstuhl : MonoBehaviour
 
     IEnumerator changeSzene()
     {
-        lvlManager.absolviertesLVL = 3;
+        lvlManager.absolviertesLVL = absorbiertesLvl;
         yield return new WaitForSeconds(timeSzeneSwap);
         weaponManager.selectedWeapon = 1;
         //weaponManager.weapons.Clear();
