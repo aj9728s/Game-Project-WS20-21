@@ -12,20 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fee0b57b19daf244bc8c3b0d6cb9b47, type: 3}
   m_Name: SOWeaponManager
   m_EditorClassIdentifier: 
-  ammoAmount: 1
+  ammoAmount: 0
   batteryLevel: 4
-  weapons: 010000000200000003000000
-  weaponsName:
-  - Pistol
-  - Pistol
-  - HackingTool
-  - Pistol
-  - HackingTool
-  - HackingTool
-  - Pistol
-  - HackingTool
-  - Pistol
-  - HackingTool
-  selectedWeapon: 3
+  weapons: 
+  weaponsName: []
+  selectedWeapon: 0
   sneaking: 0
-  hackingCharges: 0
+  hackingCharges: 1

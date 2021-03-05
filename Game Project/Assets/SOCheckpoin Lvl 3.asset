@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3badcea6e4cabd48b5b29f491bb2fe0, type: 3}
   m_Name: SOCheckpoin Lvl 3
   m_EditorClassIdentifier: 
-  checkpoint1: 1
+  checkpoint1: 0
   checkpoint2: 0
-  terminal1: 1
-  terminal2: 1
+  terminal1: 0
+  terminal2: 0
